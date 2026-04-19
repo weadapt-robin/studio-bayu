@@ -160,6 +160,26 @@ Base-unit: **8px**. Schaal:
 
 ---
 
+## Brand mark (logo)
+
+Bestand: `public/assets/logo.png` (1500×1500 transparant PNG, stacked "Studio Bayu" in display-serif).
+
+**Kleuring**: het logo wordt in HTML gerenderd via een `.logo-mark`-span die `mask-image` gebruikt — zo kan de kleur via tokens worden ingesteld:
+
+```html
+<span class="logo-mark logo-mark--md" role="img" aria-label="Studio Bayu"></span>
+```
+
+| Variant | Size | Gebruik |
+|---|---|---|
+| `.logo-mark--sm` | 48px | Header |
+| `.logo-mark--md` | 96–140px (clamp) | Hero, footer |
+| `.logo-mark--lg` | 160–240px (clamp) | Grote brand-momenten |
+
+**Kleur**: default `var(--fg)` (Mahogany) op light backgrounds; binnen `.band--deep` wordt automatisch `var(--fg-inverse)` (Vanilla) toegepast. Override met `.logo-mark--accent` voor Tobacco.
+
+---
+
 ## Implementatie-import
 
 Elke pagina (of shared layout) moet beginnen met:

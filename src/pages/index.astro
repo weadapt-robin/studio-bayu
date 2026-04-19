@@ -47,7 +47,9 @@ const domain = "studiobayu.com";
   <body>
     <header class="site-header">
       <div class="container site-header__inner">
-        <a href="/" class="site-header__logo">Studio Bayu</a>
+        <a href="/" class="site-header__logo" aria-label="Studio Bayu, terug naar home">
+          <span class="logo-mark logo-mark--sm" aria-hidden="true"></span>
+        </a>
         <nav class="site-header__nav" aria-label="Hoofdnavigatie">
           <a href="/studio">Studio</a>
           <a href="/services">Services</a>
@@ -64,7 +66,7 @@ const domain = "studiobayu.com";
       <section class="band band--light band--hero">
         <div class="container hero">
           <div class="hero__copy">
-            <span class="eyebrow">Studio Bayu</span>
+            <span class="logo-mark logo-mark--md" role="img" aria-label="Studio Bayu"></span>
             <h1>Brengt projecten<br /> in beweging.</h1>
             <p class="lead">
               Operations & (lead) projectmanagement voor agencies en brands.
@@ -251,7 +253,9 @@ const domain = "studiobayu.com";
     <!-- ============ FOOTER ============ -->
     <footer class="site-footer">
       <div class="container site-footer__inner">
-        <a href="/" class="site-footer__logo">Studio Bayu</a>
+        <a href="/" class="site-footer__logo" aria-label="Studio Bayu, terug naar home">
+          <span class="logo-mark logo-mark--md" aria-hidden="true"></span>
+        </a>
         <nav class="site-footer__nav" aria-label="Footer">
           <a href="/services">Projectmanagement</a>
           <a href="/services">Operations</a>
@@ -287,6 +291,28 @@ const domain = "studiobayu.com";
         background: var(--bg-alt);
       }
 
+      /* ---------- Logo mark (mask-image, token-gestuurd kleuren) ---------- */
+      .logo-mark {
+        display: inline-block;
+        background-color: var(--fg);
+        -webkit-mask-image: url('/assets/logo.png');
+                mask-image: url('/assets/logo.png');
+        -webkit-mask-size: contain;
+                mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+                mask-position: center;
+        aspect-ratio: 1 / 1;
+        transition: background-color var(--duration) var(--easing);
+      }
+      .logo-mark--sm  { width: 48px; height: 48px; }
+      .logo-mark--md  { width: clamp(96px, 10vw, 140px); height: clamp(96px, 10vw, 140px); }
+      .logo-mark--lg  { width: clamp(160px, 18vw, 240px); height: clamp(160px, 18vw, 240px); }
+      .logo-mark--accent { background-color: var(--accent); }
+      .logo-mark--on-deep,
+      .band--deep .logo-mark { background-color: var(--fg-inverse); }
+
       /* ---------- Header ---------- */
       .site-header {
         position: sticky;
@@ -301,12 +327,11 @@ const domain = "studiobayu.com";
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-block: 1.25rem;
+        padding-block: 0.75rem;
       }
       .site-header__logo {
-        font-family: var(--font-display);
-        font-size: 1.25rem;
-        letter-spacing: 0.01em;
+        display: inline-flex;
+        align-items: center;
       }
       .site-header__nav {
         display: flex;
@@ -343,6 +368,11 @@ const domain = "studiobayu.com";
         grid-template-columns: 1.1fr 1fr;
         gap: clamp(2rem, 6vw, 5rem);
         align-items: center;
+      }
+      .hero__copy > .logo-mark {
+        display: block;
+        margin-bottom: 0.5rem;
+        margin-left: -0.25rem;
       }
       .hero__copy h1 {
         margin-block: 1rem 1.5rem;
@@ -616,9 +646,10 @@ const domain = "studiobayu.com";
         align-items: center;
       }
       .site-footer__logo {
-        font-family: var(--font-display);
-        font-size: 1.1rem;
+        display: inline-flex;
+        align-items: center;
       }
+      .site-footer__logo .logo-mark { width: 72px; height: 72px; }
       .site-footer__nav {
         display: flex;
         gap: clamp(1rem, 2.5vw, 2.5rem);
