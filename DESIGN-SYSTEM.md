@@ -160,6 +160,25 @@ Base-unit: **8px**. Schaal:
 
 ---
 
+## Matte grain (band-textuur)
+
+Alle `.band`-elementen dragen een subtiele **matte grain** over hun flat base-color — een SVG-noise overlay via `::before` met `mix-blend-mode: multiply`. Geeft een tactiel, paper-achtig oppervlak dat aansluit bij de merkwaarden (*verfijnd, sereen, natuurlijk*) en de referentie van Cav Co.
+
+**Token**:
+```css
+--grain-intensity: 0.45;   /* 0.25 = nauwelijks zichtbaar, 0.60 = uitgesproken */
+```
+
+**Hoe het werkt**:
+- `.band::before` bevat een SVG `feTurbulence` (fractalNoise, baseFrequency 0.9, 2 octaves) als data-URI
+- `mix-blend-mode: multiply` zorgt dat de korrel de bandkleur aanneemt — geen aparte noise-kleur per band nodig
+- `.band > * { z-index: 1 }` houdt content (tekst, placeholders) boven de overlay
+
+**Vignette (alleen deep band)**:
+`.band--deep::after` voegt een zachte radial-gradient toe (transparant in midden, subtiel donker naar randen) voor extra diepte.
+
+---
+
 ## Brand mark (logo)
 
 Bestand: `public/assets/logo.png` (1500×1500 transparant PNG, stacked "Studio Bayu" in display-serif).

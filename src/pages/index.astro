@@ -299,6 +299,7 @@ const domain = "studiobayu.com";
         --frame-top: clamp(0.4rem, 0.75vw, 0.75rem);
         --frame-header-gap: clamp(0.5rem, 1.25vw, 1.25rem);
         --bg-warm: #E5D9BF; /* warm-cream band — tussen Vanilla en Sand */
+        --grain-intensity: 0.45; /* matte-grain overlay op bands */
       }
 
       /* ---------- Logo mark (mask-image, token-gestuurd kleuren) ---------- */
@@ -359,6 +360,8 @@ const domain = "studiobayu.com";
       main { display: block; }
 
       .band {
+        position: relative;
+        isolation: isolate;
         margin: 0 var(--frame-x) var(--frame-gap);
         padding-block: clamp(3.5rem, 7vw, 6rem);
         padding-inline: 0;
@@ -372,6 +375,31 @@ const domain = "studiobayu.com";
       .band--deep h2,
       .band--deep h3,
       .band--deep p { color: var(--fg-inverse); }
+
+      /* Matte-grain overlay — SVG turbulence als data-URI, blend-mode multiply */
+      .band::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.45 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+        mix-blend-mode: multiply;
+        opacity: var(--grain-intensity);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Lichte radial vignette op deep band voor extra diepte */
+      .band--deep::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.08) 100%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Content boven de overlays */
+      .band > * { position: relative; z-index: 1; }
 
       /* Inner container binnen een band — niet dubbel inset */
       .band .container {
