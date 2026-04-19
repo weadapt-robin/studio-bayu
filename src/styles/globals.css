@@ -1,0 +1,251 @@
+/* studio-bayu — globals.css
+ * Single source of truth voor tokens + base typography.
+ * Raadpleeg DESIGN-SYSTEM.md voor context en beslissingen.
+ */
+
+/* ---------- Fonts ---------- */
+
+@font-face {
+  font-family: 'TAN Nimbus';
+  src: url('/fonts/TAN-Nimbus.woff2') format('woff2'),
+       url('/fonts/TAN-Nimbus.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/fonts/Quicksand-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/fonts/Quicksand-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/fonts/Quicksand-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/fonts/Quicksand-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/fonts/Quicksand-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Tokens ---------- */
+
+:root {
+  /* Kleuren — palette "Studio Bayu" (warm editorial) */
+  --bg: #F1EADA;          /* Vanilla */
+  --bg-alt: #CEC1A8;      /* Sand */
+  --bg-deep: #AAA396;     /* Mountain — contrast-band */
+  --fg: #584738;          /* Mahogany — body + headings */
+  --fg-inverse: #F1EADA;  /* op --bg-deep */
+  --accent: #B59E7D;      /* Tobacco — CTA, links, highlights */
+  --muted: #8A7F6F;       /* secundaire tekst */
+  --border: #D9CFB8;      /* subtiele lijnen */
+
+  /* Semantic (harmonieus met palet) */
+  --success: #8A9B7F;
+  --danger:  #B85C44;
+  --warning: #C79B5A;
+
+  /* Typografie */
+  --font-display: 'TAN Nimbus', 'Playfair Display', Georgia, serif;
+  --font-body: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+
+  /* Spacing scale (base 8px) */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --space-2xl: 8rem;
+  --space-3xl: 12rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --section-padding: clamp(6rem, 12vw, 12rem);
+
+  /* Radii */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* Shadows — warm-getint */
+  --shadow-sm: 0 1px 2px rgba(88, 71, 56, 0.06);
+  --shadow-md: 0 4px 16px rgba(88, 71, 56, 0.08);
+  --shadow-lg: 0 16px 48px rgba(88, 71, 56, 0.12);
+
+  /* Motion */
+  --duration: 400ms;
+  --easing: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Reset + base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+img,
+picture,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+  transition: color var(--duration) var(--easing);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* ---------- Typography scale ---------- */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2.25vw, 1.75rem);
+  line-height: 1.3;
+}
+
+p {
+  max-width: 62ch;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Layout helpers ---------- */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: clamp(1.5rem, 4vw, 3rem);
+}
+
+.section {
+  padding-block: var(--section-padding);
+}
+
+.section--deep {
+  background: var(--bg-deep);
+  color: var(--fg-inverse);
+}
+
+.section--deep h1,
+.section--deep h2,
+.section--deep h3,
+.section--deep h4 {
+  color: var(--fg-inverse);
+}
+
+.section--alt {
+  background: var(--bg-alt);
+}
+
+/* ---------- Motion: fade-up on scroll ---------- */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration) var(--easing),
+              transform var(--duration) var(--easing);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .fade-up {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Responsive breakpoints (voor gebruik in componenten) ---------- */
+
+/* Tablet:  max-width: 960px  */
+/* Mobile:  max-width: 640px  */
