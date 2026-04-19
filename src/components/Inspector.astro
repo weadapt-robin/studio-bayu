@@ -221,6 +221,28 @@
 
 <script is:inline>
 (function () {
+  const STORAGE_KEY = 'studio-bayu-overrides';
+
+  // ---------- Always: apply stored overrides (werkt ook zonder ?edit=1) ----------
+  let storedData = null;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) storedData = JSON.parse(raw);
+  } catch (e) {}
+
+  if (storedData) {
+    Object.entries(storedData.tokens || {}).forEach(([name, val]) => {
+      document.documentElement.style.setProperty(name, val);
+    });
+    (storedData.elements || []).forEach((entry) => {
+      try {
+        const el = document.querySelector(entry.selector);
+        if (el && entry.cssText) el.style.cssText = entry.cssText;
+      } catch (e) {}
+    });
+  }
+
+  // ---------- Editor-gate ----------
   const params = new URLSearchParams(location.search);
   if (params.get('edit') !== '1') return;
 
@@ -238,6 +260,36 @@
   let currentEl = null;
   const modifiedEls = new Set();
   const modifiedTokens = new Map();
+
+  // Registreer reeds-opgeslagen state zodat Reset/Export werken
+  if (storedData) {
+    Object.entries(storedData.tokens || {}).forEach(([name, val]) => {
+      modifiedTokens.set(name, val);
+    });
+    (storedData.elements || []).forEach((entry) => {
+      try {
+        const el = document.querySelector(entry.selector);
+        if (el) modifiedEls.add(el);
+      } catch (e) {}
+    });
+  }
+
+  function saveOverrides() {
+    try {
+      const data = {
+        version: 1,
+        tokens: Object.fromEntries(modifiedTokens),
+        elements: Array.from(modifiedEls)
+          .map((el) => ({ selector: buildSelector(el), cssText: el.style.cssText }))
+          .filter((x) => x.cssText),
+      };
+      if (modifiedTokens.size === 0 && data.elements.length === 0) {
+        localStorage.removeItem(STORAGE_KEY);
+      } else {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      }
+    } catch (e) {}
+  }
 
   // ---------- Helpers ----------
   function rgbToHex(val) {
@@ -386,6 +438,7 @@
     if (!currentEl) return;
     currentEl.style.setProperty(prop, val);
     modifiedEls.add(currentEl);
+    saveOverrides();
   }
 
   // Typography
@@ -553,6 +606,7 @@
     document.documentElement.style.setProperty(name, value);
     modifiedTokens.set(name, value);
     if (hexInput) hexInput.value = value;
+    saveOverrides();
   }
 
   // ---------- Tabs ----------
@@ -572,12 +626,14 @@
     currentEl.style.cssText = '';
     modifiedEls.delete(currentEl);
     populatePanel(currentEl);
+    saveOverrides();
   });
   $('#sb-reset-all')?.addEventListener('click', () => {
     modifiedEls.forEach(el => { el.style.cssText = ''; });
     modifiedEls.clear();
     modifiedTokens.forEach((_, name) => document.documentElement.style.removeProperty(name));
     modifiedTokens.clear();
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
     buildTokens();
     if (currentEl) populatePanel(currentEl);
   });
