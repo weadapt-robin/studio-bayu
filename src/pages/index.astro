@@ -90,7 +90,7 @@ const domain = "studiobayu.com";
       </section>
 
       <!-- ============ INTRO / OUR STORY ============ -->
-      <section class="band band--light">
+      <section class="band band--alt">
         <div class="container split split--image-left fade-up">
           <div class="split__media">
             <div class="placeholder placeholder--portrait">
@@ -157,7 +157,7 @@ const domain = "studiobayu.com";
       </section>
 
       <!-- ============ SERVICES PREVIEW ============ -->
-      <section class="band band--alt">
+      <section class="band band--light">
         <div class="container services">
           <header class="services__heading fade-up">
             <span class="eyebrow">Services</span>
@@ -215,7 +215,7 @@ const domain = "studiobayu.com";
       </section>
 
       <!-- ============ VOOR WIE (Our Philosophy-style split, image rechts) ============ -->
-      <section class="band band--light">
+      <section class="band band--alt">
         <div class="container split split--image-right fade-up">
           <div class="split__copy">
             <span class="eyebrow">Voor wie</span>
@@ -295,8 +295,9 @@ const domain = "studiobayu.com";
       /* Frame-metrics (één plek, hergebruikt door alle blokken) */
       :root {
         --frame-x: clamp(1.5rem, 4.5vw, 5.5rem);
-        --frame-gap: clamp(2rem, 3.5vw, 3.5rem);
-        --frame-top: clamp(2rem, 3.5vw, 3.5rem);
+        --frame-gap: clamp(3rem, 5vw, 5rem);
+        --frame-top: clamp(0.75rem, 1.5vw, 1.5rem);
+        --bg-warm: #E5D9BF; /* warm-cream band — tussen Vanilla en Sand */
       }
 
       /* ---------- Logo mark (mask-image, token-gestuurd kleuren) ---------- */
@@ -362,7 +363,7 @@ const domain = "studiobayu.com";
         padding-inline: 0;
       }
       .band--light { background: var(--bg); color: var(--fg); }
-      .band--alt { background: var(--bg); color: var(--fg); }
+      .band--alt { background: var(--bg-warm); color: var(--fg); }
       .band--deep {
         background: var(--bg-deep);
         color: var(--fg-inverse);
