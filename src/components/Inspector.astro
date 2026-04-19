@@ -1,0 +1,990 @@
+---
+// Studio Bayu — Visuele Inspector
+// Gate: alleen actief met ?edit=1 in URL
+// Doel: live stijl-aanpassingen testen en CSS exporteren
+---
+
+<aside id="sb-inspector" class="sb-inspector" aria-label="Studio Bayu style inspector" hidden>
+  <header class="sb-inspector__header">
+    <div class="sb-inspector__titlewrap">
+      <span class="sb-inspector__badge">Editor</span>
+      <span class="sb-inspector__target" id="sb-target">Niets geselecteerd</span>
+    </div>
+    <button type="button" class="sb-inspector__close" id="sb-close" aria-label="Inspector sluiten">×</button>
+  </header>
+
+  <nav class="sb-tabs" role="tablist">
+    <button type="button" class="sb-tab is-active" data-tab="element" role="tab" aria-selected="true">Element</button>
+    <button type="button" class="sb-tab" data-tab="tokens" role="tab" aria-selected="false">Tokens</button>
+  </nav>
+
+  <!-- ============ Element tab ============ -->
+  <div class="sb-tabpanel is-active" data-tabpanel="element">
+    <div class="sb-empty" id="sb-empty">
+      Klik op een element op de pagina om te bewerken.
+    </div>
+
+    <div class="sb-sections" id="sb-element-sections" hidden>
+
+      <section class="sb-group">
+        <h3>Typography</h3>
+        <div class="sb-row">
+          <label class="sb-field sb-field--wide">
+            <span>Font</span>
+            <select data-ctl="font-family">
+              <option value="">(inherit)</option>
+              <option value="'TAN Nimbus', Georgia, serif">TAN Nimbus</option>
+              <option value="'Quicksand', system-ui, sans-serif">Quicksand</option>
+              <option value="Georgia, serif">Georgia</option>
+              <option value="system-ui, sans-serif">system-ui</option>
+            </select>
+          </label>
+        </div>
+        <div class="sb-row">
+          <label class="sb-field">
+            <span>Size</span>
+            <input type="range" data-ctl="font-size" min="8" max="120" step="1" />
+            <output data-out="font-size">— px</output>
+          </label>
+          <label class="sb-field">
+            <span>Weight</span>
+            <select data-ctl="font-weight">
+              <option value="">(inherit)</option>
+              <option value="300">300</option>
+              <option value="400">400</option>
+              <option value="500">500</option>
+              <option value="600">600</option>
+              <option value="700">700</option>
+            </select>
+          </label>
+        </div>
+        <div class="sb-row">
+          <label class="sb-field">
+            <span>Color</span>
+            <span class="sb-color">
+              <input type="color" data-ctl="color" />
+              <input type="text" data-ctl="color-hex" placeholder="#000000" />
+            </span>
+          </label>
+          <label class="sb-field">
+            <span>Align</span>
+            <select data-ctl="text-align">
+              <option value="">(inherit)</option>
+              <option value="start">start</option>
+              <option value="center">center</option>
+              <option value="end">end</option>
+              <option value="justify">justify</option>
+            </select>
+          </label>
+        </div>
+        <div class="sb-row">
+          <label class="sb-field">
+            <span>Line</span>
+            <input type="range" data-ctl="line-height" min="0.8" max="2" step="0.05" />
+            <output data-out="line-height">—</output>
+          </label>
+          <label class="sb-field">
+            <span>Tracking</span>
+            <input type="range" data-ctl="letter-spacing" min="-0.05" max="0.3" step="0.01" />
+            <output data-out="letter-spacing">— em</output>
+          </label>
+        </div>
+      </section>
+
+      <section class="sb-group">
+        <h3>Size</h3>
+        <div class="sb-row">
+          <label class="sb-field">
+            <span>Width</span>
+            <output data-out="width">— px</output>
+          </label>
+          <label class="sb-field">
+            <span>Height</span>
+            <output data-out="height">— px</output>
+          </label>
+        </div>
+      </section>
+
+      <section class="sb-group">
+        <h3>Box</h3>
+        <div class="sb-row">
+          <label class="sb-field">
+            <span>Fill</span>
+            <span class="sb-color">
+              <input type="color" data-ctl="background-color" />
+              <input type="text" data-ctl="background-color-hex" placeholder="#000000" />
+            </span>
+          </label>
+          <label class="sb-field">
+            <span>Opacity</span>
+            <input type="range" data-ctl="opacity" min="0" max="1" step="0.05" />
+            <output data-out="opacity">—</output>
+          </label>
+        </div>
+
+        <div class="sb-subgroup">
+          <h4>Padding</h4>
+          <div class="sb-row sb-row--4">
+            <label class="sb-field"><span>T</span><input type="number" data-ctl="padding-top" min="0" step="1" /></label>
+            <label class="sb-field"><span>R</span><input type="number" data-ctl="padding-right" min="0" step="1" /></label>
+            <label class="sb-field"><span>B</span><input type="number" data-ctl="padding-bottom" min="0" step="1" /></label>
+            <label class="sb-field"><span>L</span><input type="number" data-ctl="padding-left" min="0" step="1" /></label>
+          </div>
+        </div>
+
+        <div class="sb-subgroup">
+          <h4>Margin</h4>
+          <div class="sb-row sb-row--4">
+            <label class="sb-field"><span>T</span><input type="number" data-ctl="margin-top" step="1" /></label>
+            <label class="sb-field"><span>R</span><input type="number" data-ctl="margin-right" step="1" /></label>
+            <label class="sb-field"><span>B</span><input type="number" data-ctl="margin-bottom" step="1" /></label>
+            <label class="sb-field"><span>L</span><input type="number" data-ctl="margin-left" step="1" /></label>
+          </div>
+        </div>
+
+        <div class="sb-subgroup">
+          <h4>Border</h4>
+          <div class="sb-row">
+            <label class="sb-field">
+              <span>Width</span>
+              <input type="range" data-ctl="border-width" min="0" max="12" step="1" />
+              <output data-out="border-width">— px</output>
+            </label>
+            <label class="sb-field">
+              <span>Style</span>
+              <select data-ctl="border-style">
+                <option value="">(inherit)</option>
+                <option value="none">none</option>
+                <option value="solid">solid</option>
+                <option value="dashed">dashed</option>
+                <option value="dotted">dotted</option>
+              </select>
+            </label>
+          </div>
+          <div class="sb-row">
+            <label class="sb-field sb-field--wide">
+              <span>Color</span>
+              <span class="sb-color">
+                <input type="color" data-ctl="border-color" />
+                <input type="text" data-ctl="border-color-hex" placeholder="#000000" />
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="sb-row">
+          <label class="sb-field sb-field--wide">
+            <span>Radius</span>
+            <input type="range" data-ctl="border-radius" min="0" max="40" step="1" />
+            <output data-out="border-radius">— px</output>
+          </label>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ============ Tokens tab ============ -->
+  <div class="sb-tabpanel" data-tabpanel="tokens">
+    <div class="sb-sections">
+
+      <section class="sb-group">
+        <h3>Kleuren</h3>
+        <div class="sb-tokens" data-token-group="colors"></div>
+      </section>
+
+      <section class="sb-group">
+        <h3>Typografie</h3>
+        <div class="sb-tokens" data-token-group="fonts"></div>
+      </section>
+
+      <section class="sb-group">
+        <h3>Frame &amp; texture</h3>
+        <div class="sb-tokens" data-token-group="frame"></div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ============ Footer ============ -->
+  <footer class="sb-inspector__footer">
+    <div class="sb-actions-row">
+      <button type="button" class="sb-btn sb-btn--ghost" id="sb-reset-el">Reset element</button>
+      <button type="button" class="sb-btn sb-btn--ghost" id="sb-reset-all">Reset alles</button>
+    </div>
+    <button type="button" class="sb-btn sb-btn--primary" id="sb-export">Exporteer CSS</button>
+    <span class="sb-toast" id="sb-toast" hidden>Gekopieerd!</span>
+  </footer>
+</aside>
+
+<button type="button" class="sb-fab" id="sb-fab" aria-label="Editor openen" hidden>Edit</button>
+
+<script is:inline>
+(function () {
+  const params = new URLSearchParams(location.search);
+  if (params.get('edit') !== '1') return;
+
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+
+  const panel = document.getElementById('sb-inspector');
+  const fab = document.getElementById('sb-fab');
+  if (!panel || !fab) return;
+
+  panel.hidden = false;
+  document.body.classList.add('sb-edit-mode');
+
+  // ---------- State ----------
+  let currentEl = null;
+  const modifiedEls = new Set();
+  const modifiedTokens = new Map();
+
+  // ---------- Helpers ----------
+  function rgbToHex(val) {
+    if (!val) return '#000000';
+    val = val.trim();
+    if (val.startsWith('#')) {
+      if (val.length === 4) {
+        return '#' + val.slice(1).split('').map(c => c + c).join('');
+      }
+      return val.slice(0, 7);
+    }
+    const m = val.match(/rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)/);
+    if (!m) return '#000000';
+    const to2 = n => parseInt(n, 10).toString(16).padStart(2, '0');
+    return '#' + to2(m[1]) + to2(m[2]) + to2(m[3]);
+  }
+  function px(val) {
+    if (!val) return '';
+    const n = parseFloat(val);
+    return isNaN(n) ? '' : Math.round(n);
+  }
+  function buildSelector(el) {
+    // Prefer #id
+    if (el.id) return '#' + el.id;
+    // Ancestor with id + local path
+    const parts = [];
+    let cur = el;
+    while (cur && cur.nodeType === 1 && cur !== document.body) {
+      let part = cur.tagName.toLowerCase();
+      if (cur.id) { parts.unshift('#' + cur.id); break; }
+      if (cur.classList.length) {
+        part += '.' + Array.from(cur.classList)
+          .filter(c => !c.startsWith('sb-') && c !== 'is-active' && c !== 'is-visible')
+          .join('.');
+      }
+      // nth-of-type for uniqueness
+      const parent = cur.parentElement;
+      if (parent) {
+        const sameTag = Array.from(parent.children).filter(c => c.tagName === cur.tagName);
+        if (sameTag.length > 1) part += ':nth-of-type(' + (sameTag.indexOf(cur) + 1) + ')';
+      }
+      parts.unshift(part);
+      cur = cur.parentElement;
+    }
+    return parts.join(' > ');
+  }
+  function describeEl(el) {
+    let s = el.tagName.toLowerCase();
+    if (el.id) s += '#' + el.id;
+    const cls = Array.from(el.classList).filter(c => !c.startsWith('sb-')).slice(0, 2);
+    if (cls.length) s += '.' + cls.join('.');
+    return s;
+  }
+
+  // ---------- Element selection ----------
+  function selectElement(el) {
+    if (!el || el.closest('#sb-inspector') || el.closest('#sb-fab')) return;
+    if (currentEl) currentEl.removeAttribute('data-sb-selected');
+    currentEl = el;
+    el.setAttribute('data-sb-selected', '');
+    $('#sb-target').textContent = describeEl(el);
+    $('#sb-empty').hidden = true;
+    $('#sb-element-sections').hidden = false;
+    populatePanel(el);
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!document.body.classList.contains('sb-edit-mode')) return;
+    const t = e.target;
+    if (t.closest('#sb-inspector') || t.closest('#sb-fab')) return;
+    const link = t.closest('a');
+    if (link) e.preventDefault();
+    selectElement(t);
+  }, true);
+
+  // ---------- Populate panel from element ----------
+  function populatePanel(el) {
+    const cs = getComputedStyle(el);
+    const set = (sel, val) => {
+      const node = $(sel);
+      if (node) node.value = val;
+    };
+    const setOut = (ctl, val) => {
+      const o = $('[data-out="' + ctl + '"]');
+      if (o) o.textContent = val;
+    };
+
+    // Typography
+    const ff = cs.fontFamily;
+    const ffSel = $('[data-ctl="font-family"]');
+    if (ffSel) {
+      const match = Array.from(ffSel.options).find(o => o.value && ff.indexOf(o.value.split(',')[0].replace(/['"]/g, '')) > -1);
+      ffSel.value = match ? match.value : '';
+    }
+    const fs = parseFloat(cs.fontSize);
+    set('[data-ctl="font-size"]', fs);
+    setOut('font-size', Math.round(fs) + ' px');
+    set('[data-ctl="font-weight"]', cs.fontWeight);
+    const c = rgbToHex(cs.color);
+    set('[data-ctl="color"]', c);
+    set('[data-ctl="color-hex"]', c);
+    set('[data-ctl="text-align"]', cs.textAlign);
+    const lh = cs.lineHeight === 'normal' ? 1.4 : (parseFloat(cs.lineHeight) / fs);
+    set('[data-ctl="line-height"]', lh.toFixed(2));
+    setOut('line-height', lh.toFixed(2));
+    const ls = cs.letterSpacing === 'normal' ? 0 : (parseFloat(cs.letterSpacing) / fs);
+    set('[data-ctl="letter-spacing"]', ls.toFixed(2));
+    setOut('letter-spacing', ls.toFixed(2) + ' em');
+
+    // Size
+    setOut('width', Math.round(el.getBoundingClientRect().width) + ' px');
+    setOut('height', Math.round(el.getBoundingClientRect().height) + ' px');
+
+    // Box
+    const bg = rgbToHex(cs.backgroundColor);
+    set('[data-ctl="background-color"]', bg);
+    set('[data-ctl="background-color-hex"]', bg);
+    set('[data-ctl="opacity"]', cs.opacity);
+    setOut('opacity', parseFloat(cs.opacity).toFixed(2));
+
+    set('[data-ctl="padding-top"]', px(cs.paddingTop));
+    set('[data-ctl="padding-right"]', px(cs.paddingRight));
+    set('[data-ctl="padding-bottom"]', px(cs.paddingBottom));
+    set('[data-ctl="padding-left"]', px(cs.paddingLeft));
+
+    set('[data-ctl="margin-top"]', px(cs.marginTop));
+    set('[data-ctl="margin-right"]', px(cs.marginRight));
+    set('[data-ctl="margin-bottom"]', px(cs.marginBottom));
+    set('[data-ctl="margin-left"]', px(cs.marginLeft));
+
+    const bw = parseFloat(cs.borderTopWidth) || 0;
+    set('[data-ctl="border-width"]', bw);
+    setOut('border-width', Math.round(bw) + ' px');
+    set('[data-ctl="border-style"]', cs.borderTopStyle);
+    const bc = rgbToHex(cs.borderTopColor);
+    set('[data-ctl="border-color"]', bc);
+    set('[data-ctl="border-color-hex"]', bc);
+
+    const br = parseFloat(cs.borderRadius) || 0;
+    set('[data-ctl="border-radius"]', br);
+    setOut('border-radius', Math.round(br) + ' px');
+  }
+
+  // ---------- Control bindings ----------
+  function applyEl(prop, val) {
+    if (!currentEl) return;
+    currentEl.style.setProperty(prop, val);
+    modifiedEls.add(currentEl);
+  }
+
+  // Typography
+  bindSelect('font-family', 'font-family');
+  bindRange('font-size', v => {
+    applyEl('font-size', v + 'px');
+    setOut('font-size', v + ' px');
+  });
+  bindSelect('font-weight', 'font-weight');
+  bindColor('color', 'color');
+  bindSelect('text-align', 'text-align');
+  bindRange('line-height', v => {
+    applyEl('line-height', v);
+    setOut('line-height', v);
+  });
+  bindRange('letter-spacing', v => {
+    applyEl('letter-spacing', v + 'em');
+    setOut('letter-spacing', v + ' em');
+  });
+
+  // Box
+  bindColor('background-color', 'background-color');
+  bindRange('opacity', v => {
+    applyEl('opacity', v);
+    setOut('opacity', v);
+  });
+  ['top', 'right', 'bottom', 'left'].forEach(side => {
+    bindNumber('padding-' + side, 'padding-' + side, 'px');
+    bindNumber('margin-' + side, 'margin-' + side, 'px');
+  });
+  bindRange('border-width', v => {
+    applyEl('border-width', v + 'px');
+    setOut('border-width', v + ' px');
+  });
+  bindSelect('border-style', 'border-style');
+  bindColor('border-color', 'border-color');
+  bindRange('border-radius', v => {
+    applyEl('border-radius', v + 'px');
+    setOut('border-radius', v + ' px');
+  });
+
+  function bindRange(ctl, fn) {
+    const input = $('[data-ctl="' + ctl + '"]');
+    input?.addEventListener('input', () => fn(input.value));
+  }
+  function bindSelect(ctl, cssProp) {
+    const input = $('[data-ctl="' + ctl + '"]');
+    input?.addEventListener('change', () => {
+      if (input.value) applyEl(cssProp, input.value);
+      else if (currentEl) currentEl.style.removeProperty(cssProp);
+    });
+  }
+  function bindNumber(ctl, cssProp, unit) {
+    const input = $('[data-ctl="' + ctl + '"]');
+    input?.addEventListener('input', () => {
+      if (input.value === '') {
+        if (currentEl) currentEl.style.removeProperty(cssProp);
+      } else {
+        applyEl(cssProp, input.value + (unit || ''));
+      }
+    });
+  }
+  function bindColor(ctl, cssProp) {
+    const pick = $('[data-ctl="' + ctl + '"]');
+    const hex = $('[data-ctl="' + ctl + '-hex"]');
+    pick?.addEventListener('input', () => {
+      applyEl(cssProp, pick.value);
+      if (hex) hex.value = pick.value;
+    });
+    hex?.addEventListener('change', () => {
+      const v = hex.value.trim();
+      if (/^#[0-9a-f]{6}$/i.test(v)) {
+        applyEl(cssProp, v);
+        if (pick) pick.value = v;
+      }
+    });
+  }
+  function setOut(ctl, val) {
+    const o = $('[data-out="' + ctl + '"]');
+    if (o) o.textContent = val;
+  }
+
+  // ---------- Tokens tab ----------
+  const TOKENS = {
+    colors: [
+      { name: '--bg', label: 'Vanilla (bg)' },
+      { name: '--bg-warm', label: 'Warm-cream (bg-warm)' },
+      { name: '--bg-alt', label: 'Sand (bg-alt / frame)' },
+      { name: '--bg-deep', label: 'Mountain (bg-deep)' },
+      { name: '--fg', label: 'Mahogany (fg)' },
+      { name: '--fg-inverse', label: 'FG inverse' },
+      { name: '--accent', label: 'Tobacco (accent)' },
+      { name: '--muted', label: 'Muted' },
+      { name: '--border', label: 'Border' },
+    ],
+    fonts: [
+      { name: '--font-display', label: 'Display font', type: 'text' },
+      { name: '--font-body', label: 'Body font', type: 'text' },
+    ],
+    frame: [
+      { name: '--frame-x', label: 'Frame X (zijkanten)', type: 'text' },
+      { name: '--frame-gap', label: 'Gap tussen blokken', type: 'text' },
+      { name: '--frame-top', label: 'Frame top', type: 'text' },
+      { name: '--frame-header-gap', label: 'Header gap', type: 'text' },
+      { name: '--grain-intensity', label: 'Texture intensity', type: 'range', min: 0, max: 1, step: 0.01 },
+    ],
+  };
+
+  function buildTokens() {
+    const root = getComputedStyle(document.documentElement);
+    Object.entries(TOKENS).forEach(([group, items]) => {
+      const container = $('[data-token-group="' + group + '"]');
+      if (!container) return;
+      container.innerHTML = '';
+      items.forEach(tok => {
+        const cur = root.getPropertyValue(tok.name).trim();
+        const row = document.createElement('div');
+        row.className = 'sb-token-row';
+        const type = tok.type || (group === 'colors' ? 'color' : 'text');
+
+        if (type === 'color') {
+          const hex = rgbToHex(cur);
+          row.innerHTML = `
+            <label>${tok.label}</label>
+            <span class="sb-color">
+              <input type="color" value="${hex}" data-tok="${tok.name}" />
+              <input type="text" value="${hex}" data-tok-hex="${tok.name}" />
+            </span>
+          `;
+          const pick = $('[data-tok="' + tok.name + '"]', row);
+          const hexIn = $('[data-tok-hex="' + tok.name + '"]', row);
+          pick.addEventListener('input', () => setToken(tok.name, pick.value, hexIn));
+          hexIn.addEventListener('change', () => {
+            if (/^#[0-9a-f]{6}$/i.test(hexIn.value)) { pick.value = hexIn.value; setToken(tok.name, hexIn.value, null); }
+          });
+        } else if (type === 'range') {
+          const num = parseFloat(cur) || 0;
+          row.innerHTML = `
+            <label>${tok.label}</label>
+            <span class="sb-range">
+              <input type="range" min="${tok.min}" max="${tok.max}" step="${tok.step}" value="${num}" data-tok="${tok.name}" />
+              <output>${num.toFixed(2)}</output>
+            </span>
+          `;
+          const r = $('[data-tok="' + tok.name + '"]', row);
+          const out = $('output', row);
+          r.addEventListener('input', () => {
+            setToken(tok.name, r.value, null);
+            out.textContent = parseFloat(r.value).toFixed(2);
+          });
+        } else {
+          row.innerHTML = `
+            <label>${tok.label}</label>
+            <input type="text" value="${cur}" data-tok="${tok.name}" />
+          `;
+          const t = $('[data-tok="' + tok.name + '"]', row);
+          t.addEventListener('change', () => setToken(tok.name, t.value, null));
+        }
+        container.appendChild(row);
+      });
+    });
+  }
+
+  function setToken(name, value, hexInput) {
+    document.documentElement.style.setProperty(name, value);
+    modifiedTokens.set(name, value);
+    if (hexInput) hexInput.value = value;
+  }
+
+  // ---------- Tabs ----------
+  $$('.sb-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      $$('.sb-tab').forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-selected', 'false'); });
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-selected', 'true');
+      const id = btn.dataset.tab;
+      $$('.sb-tabpanel').forEach(p => p.classList.toggle('is-active', p.dataset.tabpanel === id));
+    });
+  });
+
+  // ---------- Reset + Export + FAB ----------
+  $('#sb-reset-el')?.addEventListener('click', () => {
+    if (!currentEl) return;
+    currentEl.style.cssText = '';
+    modifiedEls.delete(currentEl);
+    populatePanel(currentEl);
+  });
+  $('#sb-reset-all')?.addEventListener('click', () => {
+    modifiedEls.forEach(el => { el.style.cssText = ''; });
+    modifiedEls.clear();
+    modifiedTokens.forEach((_, name) => document.documentElement.style.removeProperty(name));
+    modifiedTokens.clear();
+    buildTokens();
+    if (currentEl) populatePanel(currentEl);
+  });
+
+  $('#sb-export')?.addEventListener('click', async () => {
+    const css = buildExport();
+    try {
+      await navigator.clipboard.writeText(css);
+      const t = $('#sb-toast');
+      t.hidden = false;
+      setTimeout(() => { t.hidden = true; }, 1800);
+    } catch (e) {
+      // fallback: prompt
+      window.prompt('Kopieer CSS:', css);
+    }
+  });
+
+  function buildExport() {
+    const lines = ['/* Studio Bayu — Editor export — ' + new Date().toLocaleString('nl-NL') + ' */', ''];
+    if (modifiedTokens.size) {
+      lines.push(':root {');
+      modifiedTokens.forEach((v, k) => lines.push('  ' + k + ': ' + v + ';'));
+      lines.push('}', '');
+    }
+    modifiedEls.forEach(el => {
+      const sel = buildSelector(el);
+      if (!el.style.cssText) return;
+      lines.push(sel + ' {');
+      for (let i = 0; i < el.style.length; i++) {
+        const prop = el.style[i];
+        lines.push('  ' + prop + ': ' + el.style.getPropertyValue(prop) + ';');
+      }
+      lines.push('}', '');
+    });
+    return lines.join('\n');
+  }
+
+  $('#sb-close')?.addEventListener('click', () => {
+    panel.classList.add('is-collapsed');
+    fab.hidden = false;
+  });
+  fab.addEventListener('click', () => {
+    panel.classList.remove('is-collapsed');
+    fab.hidden = true;
+  });
+
+  // ---------- Init ----------
+  buildTokens();
+})();
+</script>
+
+<style is:global>
+  /* Studio Bayu — Inspector (visuele editor) */
+
+  /* Outline op geselecteerd element */
+  [data-sb-selected] {
+    outline: 2px dashed #B59E7D !important;
+    outline-offset: 4px !important;
+  }
+
+  /* Body edit-mode (hover-indicatie) */
+  body.sb-edit-mode {
+    cursor: crosshair;
+  }
+  body.sb-edit-mode main,
+  body.sb-edit-mode header,
+  body.sb-edit-mode footer {
+    cursor: crosshair;
+  }
+
+  /* ========== Panel ========== */
+  #sb-inspector {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 400px;
+    max-width: 95vw;
+    background: #1a1814;
+    color: #e8ddc8;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 13px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.2);
+    transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+    cursor: default;
+  }
+  #sb-inspector.is-collapsed {
+    transform: translateX(100%);
+  }
+
+  .sb-inspector__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .sb-inspector__titlewrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+  .sb-inspector__badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    background: #B59E7D;
+    color: #1a1814;
+    border-radius: 2px;
+  }
+  .sb-inspector__target {
+    font-family: ui-monospace, 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    color: #e8ddc8;
+    opacity: 0.85;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sb-inspector__close {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #e8ddc8;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    transition: background 180ms ease;
+  }
+  .sb-inspector__close:hover { background: rgba(255,255,255,0.08); }
+
+  /* Tabs */
+  .sb-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .sb-tab {
+    background: transparent;
+    border: none;
+    color: #e8ddc8;
+    opacity: 0.55;
+    padding: 10px 14px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: opacity 180ms ease, border-color 180ms ease;
+  }
+  .sb-tab.is-active {
+    opacity: 1;
+    border-bottom-color: #B59E7D;
+  }
+  .sb-tab:hover { opacity: 0.85; }
+
+  /* Tabpanels */
+  .sb-tabpanel {
+    display: none;
+    flex: 1;
+    overflow-y: auto;
+  }
+  .sb-tabpanel.is-active { display: block; }
+  .sb-empty {
+    padding: 24px 16px;
+    text-align: center;
+    opacity: 0.55;
+    font-size: 12px;
+  }
+
+  /* Groups */
+  .sb-sections { padding: 4px 0 16px; }
+  .sb-group {
+    padding: 14px 16px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .sb-group h3 {
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #e8ddc8;
+    opacity: 0.5;
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+  .sb-subgroup { margin-top: 10px; }
+  .sb-subgroup h4 {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: #e8ddc8;
+    opacity: 0.7;
+    margin: 0 0 6px;
+    padding: 4px 0 4px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 10px;
+  }
+
+  /* Rows */
+  .sb-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .sb-row--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .sb-row:last-child { margin-bottom: 0; }
+
+  /* Fields */
+  .sb-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+  .sb-field--wide { grid-column: 1 / -1; }
+  .sb-field > span {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    font-weight: 600;
+  }
+  .sb-field input[type="range"] { width: 100%; margin: 4px 0 2px; }
+  .sb-field input[type="number"],
+  .sb-field input[type="text"],
+  .sb-field select {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #e8ddc8;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-family: ui-monospace, 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .sb-field input:focus,
+  .sb-field select:focus {
+    outline: 1px solid #B59E7D;
+    outline-offset: 0;
+  }
+  .sb-field output {
+    font-family: ui-monospace, 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    opacity: 0.7;
+  }
+
+  /* Color input combo */
+  .sb-color {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 6px;
+    align-items: center;
+  }
+  .sb-color input[type="color"] {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .sb-color input[type="color"]::-webkit-color-swatch-wrapper { padding: 2px; }
+  .sb-color input[type="color"]::-webkit-color-swatch { border: none; border-radius: 2px; }
+
+  /* Tokens */
+  .sb-tokens {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .sb-token-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .sb-token-row label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .sb-token-row input[type="text"] {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #e8ddc8;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-family: ui-monospace, 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+  .sb-range {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    align-items: center;
+  }
+  .sb-range output {
+    font-family: ui-monospace, 'JetBrains Mono', monospace;
+    font-size: 11px;
+    opacity: 0.7;
+  }
+
+  /* Footer */
+  .sb-inspector__footer {
+    padding: 12px 16px 14px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #14120f;
+    position: relative;
+  }
+  .sb-actions-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .sb-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #e8ddc8;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 180ms ease;
+    font-family: inherit;
+  }
+  .sb-btn:hover { background: rgba(255,255,255,0.06); }
+  .sb-btn--primary {
+    background: #B59E7D;
+    color: #1a1814;
+    border-color: #B59E7D;
+  }
+  .sb-btn--primary:hover { background: #c4ac89; border-color: #c4ac89; }
+  .sb-toast {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    right: 16px;
+    background: #B59E7D;
+    color: #1a1814;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  /* FAB */
+  .sb-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    padding: 10px 18px;
+    background: #1a1814;
+    color: #e8ddc8;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  }
+  .sb-fab:hover { background: #232018; }
+
+  /* Squeeze main content so het niet onder de panel-rand verdwijnt */
+  body.sb-edit-mode {
+    padding-right: 400px;
+  }
+  body.sb-edit-mode #sb-inspector.is-collapsed ~ * {
+    /* when collapsed we remove right padding via script too, but keep visual */
+  }
+
+  @media (max-width: 900px) {
+    #sb-inspector {
+      width: 100vw;
+      max-width: 100vw;
+    }
+    body.sb-edit-mode {
+      padding-right: 0;
+    }
+    body.sb-edit-mode #sb-inspector:not(.is-collapsed) ~ main,
+    body.sb-edit-mode #sb-inspector:not(.is-collapsed) ~ header,
+    body.sb-edit-mode #sb-inspector:not(.is-collapsed) ~ footer {
+      display: none;
+    }
+  }
+</style>
