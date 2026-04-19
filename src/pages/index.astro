@@ -69,7 +69,7 @@ const domain = "studiobayu.com";
 
       <!-- ============ HERO (id=home) ============ -->
       <section id="home" class="band band--light band--hero">
-        <div class="container hero">
+        <div class="container hero hero--centered">
           <div class="hero__copy">
             <span class="logo-mark logo-mark--md" role="img" aria-label="Studio Bayu"></span>
             <h1>Brengt projecten<br /> in beweging.</h1>
@@ -84,11 +84,6 @@ const domain = "studiobayu.com";
             <div class="hero__cta">
               <a href="#contact" class="btn btn--primary">Kennismaken</a>
               <a href="#expertise" class="btn btn--ghost">Expertise</a>
-            </div>
-          </div>
-          <div class="hero__visual">
-            <div class="placeholder placeholder--portrait">
-              <span class="eyebrow">Portret · placeholder</span>
             </div>
           </div>
         </div>
@@ -686,17 +681,22 @@ const domain = "studiobayu.com";
         max-width: 1120px;
       }
 
-      /* ---------- Hero ---------- */
-      .hero {
-        display: grid;
-        grid-template-columns: 1.1fr 1fr;
-        gap: clamp(2rem, 6vw, 5rem);
+      /* ---------- Hero (gecentreerd, zonder media) ---------- */
+      .hero--centered {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .hero--centered .hero__copy {
+        max-width: 780px;
+        display: flex;
+        flex-direction: column;
         align-items: center;
       }
       .hero__copy > .logo-mark {
         display: block;
-        margin-bottom: 0.5rem;
-        margin-left: -0.25rem;
+        margin-bottom: 0.75rem;
       }
       .hero__copy h1 {
         margin-block: 1rem 1.5rem;
@@ -712,17 +712,14 @@ const domain = "studiobayu.com";
       .hero__copy p {
         color: var(--muted);
         margin-bottom: 1rem;
+        max-width: 62ch;
       }
       .hero__cta {
         display: flex;
         gap: 1rem;
         margin-top: 2rem;
         flex-wrap: wrap;
-      }
-      .hero__visual { position: relative; }
-      @media (max-width: 860px) {
-        .hero { grid-template-columns: 1fr; }
-        .hero__visual { max-width: 480px; margin-inline: auto; width: 100%; }
+        justify-content: center;
       }
 
       /* ---------- Split layout ---------- */
