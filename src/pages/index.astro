@@ -47,29 +47,34 @@ const domain = "studiobayu.com";
   <body>
     <header class="site-header">
       <div class="container site-header__inner">
-        <a href="/" class="site-header__logo" aria-label="Studio Bayu, terug naar home">
-          <span class="logo-mark logo-mark--sm" aria-hidden="true"></span>
-        </a>
+        <a href="#home" class="site-header__logo">Studio Bayu</a>
         <nav class="site-header__nav" aria-label="Hoofdnavigatie">
-          <a href="/studio">Studio</a>
-          <a href="/services">Services</a>
-          <a href="/projecten">Projecten</a>
-          <a href="/ervaringen">Ervaringen</a>
-          <a href="/contact">Contact</a>
+          <a href="#home">Home</a>
+          <div class="nav-item nav-item--dropdown">
+            <a href="#expertise" class="nav-item__link" aria-haspopup="true">Expertise</a>
+            <ul class="nav-dropdown" role="menu">
+              <li role="none"><a href="#expertise-projectmanagement" role="menuitem">(Lead) Projectmanagement</a></li>
+              <li role="none"><a href="#expertise-operations" role="menuitem">Operations &amp; procesoptimalisatie</a></li>
+              <li role="none"><a href="#expertise-events" role="menuitem">Events &amp; weddings</a></li>
+            </ul>
+          </div>
+          <a href="#projecten">Projecten</a>
+          <a href="#ervaringen">Ervaringen</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
 
     <main>
 
-      <!-- ============ HERO ============ -->
-      <section class="band band--light band--hero">
+      <!-- ============ HERO (id=home) ============ -->
+      <section id="home" class="band band--light band--hero">
         <div class="container hero">
           <div class="hero__copy">
             <span class="logo-mark logo-mark--md" role="img" aria-label="Studio Bayu"></span>
             <h1>Brengt projecten<br /> in beweging.</h1>
             <p class="lead">
-              Operations & (lead) projectmanagement voor agencies en brands.
+              Operations &amp; (lead) projectmanagement voor agencies en brands.
             </p>
             <p>
               Ik help teams en organisaties om complexe projecten te structureren, aan te sturen
@@ -77,8 +82,8 @@ const domain = "studiobayu.com";
               samenwerking en een soepel lopende operatie.
             </p>
             <div class="hero__cta">
-              <a href="/contact" class="btn btn--primary">Kennismaken</a>
-              <a href="/services" class="btn btn--ghost">Services</a>
+              <a href="#contact" class="btn btn--primary">Kennismaken</a>
+              <a href="#expertise" class="btn btn--ghost">Expertise</a>
             </div>
           </div>
           <div class="hero__visual">
@@ -89,8 +94,8 @@ const domain = "studiobayu.com";
         </div>
       </section>
 
-      <!-- ============ INTRO / OUR STORY ============ -->
-      <section class="band band--alt">
+      <!-- ============ INTRODUCTIE (id=introductie) ============ -->
+      <section id="introductie" class="band band--alt">
         <div class="container split split--image-left fade-up">
           <div class="split__media">
             <div class="placeholder placeholder--portrait">
@@ -98,29 +103,33 @@ const domain = "studiobayu.com";
             </div>
           </div>
           <div class="split__copy">
-            <span class="eyebrow">Onze introductie</span>
-            <h2>Structuur waar ideeën <em>om vragen.</em></h2>
+            <span class="eyebrow">Introductie</span>
+            <h2>Over Studio Bayu</h2>
+            <p>
+              Ik ben <strong>Lize van den Heuvel</strong>, project- en operations specialist.
+              Ik help agencies en brands om projecten helder te structureren, teams beter te
+              laten samenwerken en de operatie strak georganiseerd te krijgen.
+            </p>
+            <p>
+              Mijn rol zit vaak tussen strategie en uitvoering in: ik vertaal plannen naar
+              werkbare structuren en zorg dat ze ook echt worden uitgevoerd.
+            </p>
             <p>
               In veel agencies en creatieve organisaties zit de uitdaging niet in ideeën,
               maar in uitvoering. Projecten lopen parallel, prioriteiten verschuiven, teams
               schakelen constant en overzicht raakt versnipperd. Studio Bayu brengt daar
               structuur in.
             </p>
-            <p>
-              Ik werk op het snijvlak van operations en projectmanagement en zorg dat
-              projecten niet alleen starten, maar ook daadwerkelijk worden afgerond.
-              Op tijd, binnen scope en met grip op proces en team.
-            </p>
           </div>
         </div>
       </section>
 
-      <!-- ============ WAT STUDIO BAYU DOET (deep band, zoals SEREIN) ============ -->
-      <section class="band band--deep fade-up">
+      <!-- ============ WERKWIJZE (id=werkwijze) ============ -->
+      <section id="werkwijze" class="band band--deep fade-up">
         <div class="container showcase">
           <div class="showcase__heading">
-            <span class="eyebrow eyebrow--inverse">Wat Studio Bayu doet</span>
-            <h2>Helder. Stuurbaar. Voorspelbaar.</h2>
+            <span class="eyebrow eyebrow--inverse">Werkwijze</span>
+            <h2>Hoe werkt Studio Bayu?</h2>
           </div>
           <div class="showcase__grid">
             <figure class="pillar">
@@ -148,24 +157,32 @@ const domain = "studiobayu.com";
               </figcaption>
             </figure>
           </div>
-          <p class="showcase__body">
-            Studio Bayu ondersteunt agencies en brands in het realiseren van projecten die
-            complex, dynamisch of multidisciplinair zijn. Zodat teams beter kunnen werken en
-            projecten minder afhankelijk zijn van ad hoc schakelen.
-          </p>
+          <div class="showcase__body">
+            <p>
+              Mijn aanpak is direct, analytisch en betrokken. Ik begin altijd met het begrijpen
+              van het systeem: hoe werkt een team, waar zit de frictie, waar gaat energie
+              verloren?
+            </p>
+            <p>
+              Van daaruit bouw ik structuur die past bij hoe een organisatie écht werkt,
+              niet hoe het op papier zou moeten zijn. Zodat teams beter kunnen werken en
+              projecten minder afhankelijk zijn van ad hoc schakelen.
+            </p>
+          </div>
         </div>
       </section>
 
-      <!-- ============ SERVICES PREVIEW ============ -->
-      <section class="band band--light">
+      <!-- ============ EXPERTISE (id=expertise) ============ -->
+      <section id="expertise" class="band band--light">
         <div class="container services">
           <header class="services__heading fade-up">
-            <span class="eyebrow">Services</span>
+            <span class="eyebrow">Expertise</span>
             <h2>Drie manieren waarop ik werk.</h2>
           </header>
 
           <div class="services__grid">
-            <article class="service-card fade-up">
+
+            <article id="expertise-projectmanagement" class="service-card fade-up">
               <div class="placeholder placeholder--portrait">
                 <span class="eyebrow">01</span>
               </div>
@@ -174,48 +191,102 @@ const domain = "studiobayu.com";
                 <p>
                   Ik stuur projecten van begin tot eind aan en bewaak planning, scope, budget
                   en kwaliteit. Van het vertalen van strategie naar concrete planning tot
-                  dagelijkse coördinatie en stakeholdermanagement. Inzetbaar als projectmanager
-                  of lead binnen bestaande teams.
+                  dagelijkse coördinatie en stakeholdermanagement.
                 </p>
-                <a href="/services#projectmanagement" class="link-arrow">Meer over projectmanagement</a>
+                <details class="service-expand">
+                  <summary>
+                    <span class="service-expand__label">Meer over projectmanagement</span>
+                  </summary>
+                  <div class="service-expand__body">
+                    <p>
+                      Ik neem verantwoordelijkheid voor de uitvoering van projecten van begin
+                      tot eind. Dat betekent:
+                    </p>
+                    <ul>
+                      <li>vertaling van strategie naar planning</li>
+                      <li>aansturing van teams en klanten</li>
+                      <li>bewaking van scope, budget en timing</li>
+                      <li>continue afstemming met stakeholders</li>
+                    </ul>
+                    <p>
+                      Ik werk als projectmanager of lead binnen bestaande structuren en teams.
+                    </p>
+                  </div>
+                </details>
               </div>
             </article>
 
-            <article class="service-card fade-up">
+            <article id="expertise-operations" class="service-card fade-up">
               <div class="placeholder placeholder--portrait">
                 <span class="eyebrow">02</span>
               </div>
               <div class="service-card__body">
-                <h3>Operations & procesoptimalisatie</h3>
+                <h3>Operations &amp; procesoptimalisatie</h3>
                 <p>
                   Ik analyseer hoe teams en organisaties werken en breng structuur aan waar dat
                   ontbreekt. Denk aan workflow optimalisatie, interne processen, rolverdeling
                   en werkstructuren die schaalbaar zijn.
                 </p>
-                <a href="/services#operations" class="link-arrow">Meer over operations</a>
+                <details class="service-expand">
+                  <summary>
+                    <span class="service-expand__label">Meer over operations</span>
+                  </summary>
+                  <div class="service-expand__body">
+                    <p>
+                      Sterke projecten vragen om sterke processen. Ik breng in kaart hoe teams
+                      werken en optimaliseer de structuur erachter. Denk aan:
+                    </p>
+                    <ul>
+                      <li>workflow en procesontwerp</li>
+                      <li>rolverdeling en verantwoordelijkheden</li>
+                      <li>interne communicatie en overdracht</li>
+                      <li>schaalbare werkstructuren</li>
+                    </ul>
+                    <p>Doel: minder frictie, meer output.</p>
+                  </div>
+                </details>
               </div>
             </article>
 
-            <article class="service-card fade-up">
+            <article id="expertise-events" class="service-card fade-up">
               <div class="placeholder placeholder--portrait">
                 <span class="eyebrow">03</span>
               </div>
               <div class="service-card__body">
-                <h3>Events & weddings <span class="subtle">(selectief)</span></h3>
+                <h3>Events &amp; weddings</h3>
                 <p>
-                  Naast mijn werk voor agencies en brands begeleid ik selectief events en
-                  bruiloften. Altijd met dezelfde aanpak: overzicht, structuur en aandacht
-                  voor detail in uitvoering.
+                  Naast mijn werk voor agencies en brands begeleid ik events en bruiloften.
+                  Altijd met dezelfde aanpak: overzicht, structuur en aandacht voor detail
+                  in uitvoering.
                 </p>
-                <a href="/services#events" class="link-arrow">Meer over events</a>
+                <details class="service-expand">
+                  <summary>
+                    <span class="service-expand__label">Meer over events</span>
+                  </summary>
+                  <div class="service-expand__body">
+                    <p>
+                      Van concept tot productie. Voor brands die een event willen dat in elk
+                      detail klopt, en voor privé-opdrachtgevers die hun dag professioneel
+                      begeleid willen zien.
+                    </p>
+                    <ul>
+                      <li>concept en draaiboek</li>
+                      <li>leveranciers-coördinatie</li>
+                      <li>planning en timing</li>
+                      <li>on-site aansturing</li>
+                    </ul>
+                    <p>Selectief, zodat elk traject de aandacht krijgt die het verdient.</p>
+                  </div>
+                </details>
               </div>
             </article>
+
           </div>
         </div>
       </section>
 
-      <!-- ============ VOOR WIE (Our Philosophy-style split, image rechts) ============ -->
-      <section class="band band--alt">
+      <!-- ============ VOOR WIE (id=voor-wie) ============ -->
+      <section id="voor-wie" class="band band--alt">
         <div class="container split split--image-right fade-up">
           <div class="split__copy">
             <span class="eyebrow">Voor wie</span>
@@ -235,16 +306,138 @@ const domain = "studiobayu.com";
         </div>
       </section>
 
-      <!-- ============ CTA ============ -->
-      <section class="band band--deep fade-up">
+      <!-- ============ PROJECTEN (id=projecten) ============ -->
+      <section id="projecten" class="band band--deep fade-up">
+        <div class="container carousel" data-carousel>
+          <header class="carousel__heading">
+            <div>
+              <span class="eyebrow eyebrow--inverse">Projecten</span>
+              <h2>Een greep uit het werk.</h2>
+            </div>
+            <div class="carousel__controls">
+              <button type="button" class="carousel__arrow" data-carousel-prev aria-label="Vorige projecten">←</button>
+              <button type="button" class="carousel__arrow" data-carousel-next aria-label="Volgende projecten">→</button>
+            </div>
+          </header>
+
+          <div class="carousel__track" tabindex="0" aria-label="Projecten">
+
+            <article class="project-card">
+              <span class="project-card__num">01 · Agency</span>
+              <h3>[Project titel]</h3>
+              <p>
+                [Placeholder beschrijving — vervang met echte case. Korte intro over het
+                project, de uitdaging en de rol van Studio Bayu. Twee tot drie zinnen.]
+              </p>
+              <span class="project-card__meta">Rol — [projectmanager / lead]</span>
+            </article>
+
+            <article class="project-card">
+              <span class="project-card__num">02 · Operations</span>
+              <h3>[Project titel]</h3>
+              <p>
+                [Placeholder beschrijving — procesoptimalisatie traject. Beschrijf de
+                organisatie, de oorspronkelijke situatie en wat er veranderde.]
+              </p>
+              <span class="project-card__meta">Rol — [operations lead]</span>
+            </article>
+
+            <article class="project-card">
+              <span class="project-card__num">03 · Brand</span>
+              <h3>[Project titel]</h3>
+              <p>
+                [Placeholder beschrijving — brand-gerelateerd project. Context, scope en
+                resultaat.]
+              </p>
+              <span class="project-card__meta">Rol — [lead projectmanager]</span>
+            </article>
+
+            <article class="project-card">
+              <span class="project-card__num">04 · Event</span>
+              <h3>[Project titel]</h3>
+              <p>
+                [Placeholder beschrijving — event of bruiloft. Van concept tot productie,
+                coördinatie en uitvoering.]
+              </p>
+              <span class="project-card__meta">Rol — [event lead]</span>
+            </article>
+
+            <article class="project-card">
+              <span class="project-card__num">05 · Agency</span>
+              <h3>[Project titel]</h3>
+              <p>
+                [Placeholder beschrijving — vijfde case. Voeg hier een extra project toe om
+                de horizontal-scroll interactie zichtbaar te maken.]
+              </p>
+              <span class="project-card__meta">Rol — [projectmanager]</span>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ERVARINGEN (id=ervaringen) ============ -->
+      <section id="ervaringen" class="band band--light fade-up">
+        <div class="container quotes" data-quotes>
+          <div class="quotes__heading">
+            <span class="eyebrow">Ervaringen</span>
+            <h2>Wat opdrachtgevers zeggen.</h2>
+          </div>
+
+          <div class="quotes__stage" aria-live="polite">
+            <figure class="quote" data-quote>
+              <blockquote>“Rust in een chaotisch project.”</blockquote>
+              <figcaption>— [Naam], [Bedrijf]</figcaption>
+            </figure>
+            <figure class="quote" data-quote>
+              <blockquote>“Iemand die écht overzicht brengt.”</blockquote>
+              <figcaption>— [Naam], [Bedrijf]</figcaption>
+            </figure>
+            <figure class="quote" data-quote>
+              <blockquote>“Degene die ervoor zorgt dat het afkomt.”</blockquote>
+              <figcaption>— [Naam], [Bedrijf]</figcaption>
+            </figure>
+            <figure class="quote" data-quote>
+              <blockquote>“[Placeholder quote 4 — vervang met echte testimonial.]”</blockquote>
+              <figcaption>— [Naam], [Bedrijf]</figcaption>
+            </figure>
+            <figure class="quote" data-quote>
+              <blockquote>“[Placeholder quote 5 — vervang met echte testimonial.]”</blockquote>
+              <figcaption>— [Naam], [Bedrijf]</figcaption>
+            </figure>
+            <figure class="quote" data-quote>
+              <blockquote>“[Placeholder quote 6 — vervang met echte testimonial.]”</blockquote>
+              <figcaption>— [Naam], [Bedrijf]</figcaption>
+            </figure>
+            <figure class="quote" data-quote>
+              <blockquote>“[Placeholder quote 7 — vervang met echte testimonial.]”</blockquote>
+              <figcaption>— [Naam], [Bedrijf]</figcaption>
+            </figure>
+          </div>
+
+          <div class="quotes__controls">
+            <button type="button" class="carousel__arrow" data-quote-prev aria-label="Vorige quote">←</button>
+            <button type="button" class="carousel__arrow" data-quote-next aria-label="Volgende quote">→</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CTA / CONTACT (id=contact) ============ -->
+      <section id="contact" class="band band--alt fade-up">
         <div class="container cta">
-          <span class="eyebrow eyebrow--inverse">Kennismaken</span>
+          <span class="eyebrow">Kennismaken</span>
           <h2>Klaar om je operatie in beweging te brengen?</h2>
           <p>
             Wil je weten of Studio Bayu past bij jouw organisatie of project? Neem contact op
             voor een kennismaking.
           </p>
-          <a href="/contact" class="btn btn--inverse">Neem contact op</a>
+          <div class="cta__actions">
+            <a href="mailto:lize@studiobayu.com" class="btn btn--primary">Mail Lize</a>
+            <a href="mailto:lize@studiobayu.com?subject=Kennismaking%20Studio%20Bayu" class="btn btn--ghost">Plan een kennismaking</a>
+          </div>
+          <p class="cta__mail">
+            <a href="mailto:lize@studiobayu.com">lize@studiobayu.com</a>
+          </p>
         </div>
       </section>
 
@@ -253,14 +446,14 @@ const domain = "studiobayu.com";
     <!-- ============ FOOTER ============ -->
     <footer class="site-footer">
       <div class="container site-footer__inner">
-        <a href="/" class="site-footer__logo" aria-label="Studio Bayu, terug naar home">
+        <a href="#home" class="site-footer__logo" aria-label="Studio Bayu, terug naar home">
           <span class="logo-mark logo-mark--md" aria-hidden="true"></span>
         </a>
         <nav class="site-footer__nav" aria-label="Footer">
-          <a href="/services">Projectmanagement</a>
-          <a href="/services">Operations</a>
-          <a href="/services">Events</a>
-          <a href="/contact">Contact</a>
+          <a href="#expertise-projectmanagement">Projectmanagement</a>
+          <a href="#expertise-operations">Operations</a>
+          <a href="#expertise-events">Events</a>
+          <a href="#contact">Contact</a>
         </nav>
         <p class="site-footer__mail">
           <a href="mailto:lize@studiobayu.com">lize@studiobayu.com</a>
@@ -269,6 +462,7 @@ const domain = "studiobayu.com";
     </footer>
 
     <script is:inline>
+      // Fade-up on scroll
       const io = new IntersectionObserver((entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
@@ -278,6 +472,42 @@ const domain = "studiobayu.com";
         }
       }, { rootMargin: '-10% 0px', threshold: 0.05 });
       document.querySelectorAll('.fade-up').forEach((el) => io.observe(el));
+
+      // Projecten carousel — horizontal scroll via arrows
+      document.querySelectorAll('[data-carousel]').forEach((c) => {
+        const track = c.querySelector('.carousel__track');
+        const prev = c.querySelector('[data-carousel-prev]');
+        const next = c.querySelector('[data-carousel-next]');
+        if (!track) return;
+        const step = () => {
+          const first = track.querySelector('.project-card');
+          if (!first) return 0;
+          const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 0);
+          return first.getBoundingClientRect().width + gap;
+        };
+        prev?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+        next?.addEventListener('click', () => track.scrollBy({ left:  step(), behavior: 'smooth' }));
+      });
+
+      // Quote rotator — single quote visible, auto-rotate + manual arrows
+      (function () {
+        const stage = document.querySelector('[data-quotes]');
+        if (!stage) return;
+        const quotes = stage.querySelectorAll('[data-quote]');
+        if (!quotes.length) return;
+        let i = 0;
+        let timer;
+        const show = (idx) => {
+          i = (idx + quotes.length) % quotes.length;
+          quotes.forEach((q, j) => q.classList.toggle('is-active', j === i));
+        };
+        const start = () => { timer = setInterval(() => show(i + 1), 5500); };
+        const reset = () => { clearInterval(timer); start(); };
+        show(0);
+        start();
+        stage.querySelector('[data-quote-prev]')?.addEventListener('click', () => { show(i - 1); reset(); });
+        stage.querySelector('[data-quote-next]')?.addEventListener('click', () => { show(i + 1); reset(); });
+      })();
     </script>
 
     <style is:global>
@@ -286,21 +516,21 @@ const domain = "studiobayu.com";
          (globale tokens + base zitten in src/styles/globals.css)
          ========================================================== */
 
-      /* Outer frame effect — body = Sand; header/bands/footer zijn losstaande blokken
-         met margin-inline zodat de Sand-frame door alle kanten zichtbaar blijft */
       body {
         background: var(--bg-alt);
       }
 
-      /* Frame-metrics (één plek, hergebruikt door alle blokken) */
       :root {
         --frame-x: clamp(1.5rem, 4.5vw, 5.5rem);
         --frame-gap: clamp(3rem, 5vw, 5rem);
         --frame-top: clamp(0.4rem, 0.75vw, 0.75rem);
         --frame-header-gap: clamp(0.5rem, 1.25vw, 1.25rem);
-        --bg-warm: #E5D9BF; /* warm-cream band — tussen Vanilla en Sand */
-        --grain-intensity: 0.38; /* paper-texture overlay op bands */
+        --bg-warm: #E5D9BF;
+        --grain-intensity: 0.38;
       }
+
+      /* ---------- Smooth scroll + scroll-offset voor sticky header ---------- */
+      html { scroll-padding-top: 5rem; }
 
       /* ---------- Logo mark (mask-image, token-gestuurd kleuren) ---------- */
       .logo-mark {
@@ -339,24 +569,74 @@ const domain = "studiobayu.com";
         padding-block: 0.65rem;
         padding-inline: clamp(1.25rem, 3vw, 2.5rem);
         max-width: none;
+        gap: 2rem;
       }
       .site-header__logo {
-        display: inline-flex;
-        align-items: center;
+        font-family: var(--font-display);
+        font-size: clamp(1.25rem, 1.4vw, 1.5rem);
+        letter-spacing: 0.005em;
+        color: var(--fg);
       }
       .site-header__nav {
         display: flex;
-        gap: clamp(1rem, 2.5vw, 2.5rem);
-        font-size: 0.85rem;
+        align-items: center;
+        gap: clamp(1.25rem, 2.75vw, 2.75rem);
+        font-size: 0.95rem;
         font-weight: 500;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
       }
-      @media (max-width: 640px) {
+      .site-header__nav a { color: var(--fg); }
+
+      /* Dropdown onder Expertise */
+      .nav-item { position: relative; }
+      .nav-item__link { display: inline-block; }
+      .nav-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -8px);
+        min-width: 260px;
+        margin: 0;
+        padding: 0.5rem 0;
+        list-style: none;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity var(--duration) var(--easing),
+                    transform var(--duration) var(--easing),
+                    visibility var(--duration) var(--easing);
+        z-index: 100;
+      }
+      .nav-item--dropdown:hover .nav-dropdown,
+      .nav-item--dropdown:focus-within .nav-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, 0);
+      }
+      .nav-dropdown li { margin: 0; }
+      .nav-dropdown a {
+        display: block;
+        padding: 0.7rem 1.25rem;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--fg);
+        white-space: nowrap;
+        transition: background var(--duration) var(--easing), color var(--duration) var(--easing);
+      }
+      .nav-dropdown a:hover {
+        background: var(--bg-warm);
+        color: var(--accent);
+      }
+      @media (max-width: 860px) {
         .site-header__nav { display: none; }
       }
 
-      /* ---------- Band system (elk blok = los kaart-paneel op Sand-frame) ---------- */
+      /* ---------- Band system ---------- */
       main { display: block; }
 
       .band {
@@ -365,6 +645,7 @@ const domain = "studiobayu.com";
         margin: 0 var(--frame-x) var(--frame-gap);
         padding-block: clamp(3.5rem, 7vw, 6rem);
         padding-inline: 0;
+        scroll-margin-top: 5rem;
       }
       .band--light { background: var(--bg); color: var(--fg); }
       .band--alt { background: var(--bg-warm); color: var(--fg); }
@@ -376,7 +657,6 @@ const domain = "studiobayu.com";
       .band--deep h3,
       .band--deep p { color: var(--fg-inverse); }
 
-      /* Paper-texture overlay — organische plaster-textuur, blend-mode multiply */
       .band::before {
         content: '';
         position: absolute;
@@ -391,7 +671,6 @@ const domain = "studiobayu.com";
         z-index: 0;
       }
 
-      /* Lichte radial vignette op deep band voor extra diepte */
       .band--deep::after {
         content: '';
         position: absolute;
@@ -401,10 +680,8 @@ const domain = "studiobayu.com";
         z-index: 0;
       }
 
-      /* Content boven de overlays */
       .band > * { position: relative; z-index: 1; }
 
-      /* Inner container binnen een band — niet dubbel inset */
       .band .container {
         max-width: 1120px;
       }
@@ -424,9 +701,7 @@ const domain = "studiobayu.com";
       .hero__copy h1 {
         margin-block: 1rem 1.5rem;
       }
-      .hero__copy h1 em {
-        font-style: italic;
-      }
+      .hero__copy h1 em { font-style: italic; }
       .hero__copy .lead {
         font-size: clamp(1.1rem, 1.6vw, 1.35rem);
         color: var(--fg);
@@ -444,15 +719,13 @@ const domain = "studiobayu.com";
         margin-top: 2rem;
         flex-wrap: wrap;
       }
-      .hero__visual {
-        position: relative;
-      }
+      .hero__visual { position: relative; }
       @media (max-width: 860px) {
         .hero { grid-template-columns: 1fr; }
         .hero__visual { max-width: 480px; margin-inline: auto; width: 100%; }
       }
 
-      /* ---------- Split layout (Our Story / Our Philosophy) ---------- */
+      /* ---------- Split layout ---------- */
       .split {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -463,13 +736,11 @@ const domain = "studiobayu.com";
       .split--image-left .split__copy { order: 1; }
       .split--image-right .split__media { order: 1; }
       .split--image-right .split__copy { order: 0; }
-
       .split__copy .eyebrow { display: block; margin-bottom: 1.25rem; }
       .split__copy h2 { margin-bottom: 1.75rem; }
       .split__copy h2 em { font-style: italic; color: var(--accent); }
       .split__copy p + p { margin-top: 1rem; }
-      .split__copy p { color: var(--fg); opacity: 0.85; }
-
+      .split__copy p { color: var(--fg); opacity: 0.9; }
       @media (max-width: 860px) {
         .split { grid-template-columns: 1fr; }
         .split--image-left .split__media,
@@ -479,10 +750,8 @@ const domain = "studiobayu.com";
         .split__media { max-width: 480px; margin-inline: auto; width: 100%; }
       }
 
-      /* ---------- Showcase (SEREIN-style deep band) ---------- */
-      .showcase {
-        text-align: center;
-      }
+      /* ---------- Showcase (Werkwijze) ---------- */
+      .showcase { text-align: center; }
       .showcase__heading {
         max-width: 720px;
         margin: 0 auto 4rem;
@@ -506,12 +775,15 @@ const domain = "studiobayu.com";
         max-width: 680px;
         margin: 0 auto;
         opacity: 0.92;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
       }
       @media (max-width: 860px) {
         .showcase__grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; margin-bottom: 3rem; }
       }
 
-      /* ---------- Services preview ---------- */
+      /* ---------- Expertise (services) ---------- */
       .services__heading {
         max-width: 640px;
         margin-bottom: clamp(3rem, 6vw, 5rem);
@@ -521,6 +793,7 @@ const domain = "studiobayu.com";
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: clamp(1.5rem, 3vw, 3rem);
+        align-items: start;
       }
       .service-card {
         display: flex;
@@ -533,14 +806,73 @@ const domain = "studiobayu.com";
       }
       .service-card__body p {
         color: var(--fg);
-        opacity: 0.8;
+        opacity: 0.85;
         margin-bottom: 1.25rem;
       }
-      .service-card__body .subtle {
-        color: var(--muted);
-        font-style: italic;
-        font-size: 0.85em;
+
+      /* Accordion via <details> */
+      .service-expand {
+        border-top: 1px solid var(--border);
+        margin-top: 0.5rem;
       }
+      .service-expand[open] { border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+      .service-expand > summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 0.9rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        transition: color var(--duration) var(--easing);
+      }
+      .service-expand > summary::-webkit-details-marker { display: none; }
+      .service-expand__label {
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--fg);
+      }
+      .service-expand > summary::after {
+        content: '+';
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--accent);
+        transition: transform var(--duration) var(--easing);
+      }
+      .service-expand[open] > summary::after { transform: rotate(45deg); }
+      .service-expand > summary:hover .service-expand__label { color: var(--accent); }
+      .service-expand__body {
+        padding: 0.5rem 0 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+      }
+      .service-expand__body ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .service-expand__body li {
+        position: relative;
+        padding-left: 1.5rem;
+        font-size: 0.95rem;
+      }
+      .service-expand__body li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.7em;
+        width: 0.6rem;
+        height: 1px;
+        background: var(--accent);
+      }
+
       @media (max-width: 860px) {
         .services__grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
       }
@@ -557,7 +889,7 @@ const domain = "studiobayu.com";
       .feature-list li {
         position: relative;
         padding-left: 2rem;
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         line-height: 1.55;
       }
       .feature-list li::before {
@@ -570,6 +902,158 @@ const domain = "studiobayu.com";
         background: var(--accent);
       }
 
+      /* ---------- Projecten carousel ---------- */
+      .carousel__heading {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 2rem;
+        margin-bottom: clamp(2rem, 4vw, 3rem);
+      }
+      .carousel__heading h2 { margin-top: 0.75rem; }
+      .carousel__controls {
+        display: flex;
+        gap: 0.75rem;
+        flex-shrink: 0;
+      }
+      .carousel__arrow {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid currentColor;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+        font-size: 1.05rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background var(--duration) var(--easing),
+                    color var(--duration) var(--easing),
+                    transform var(--duration) var(--easing);
+      }
+      .carousel__arrow:hover {
+        background: currentColor;
+      }
+      .band--deep .carousel__arrow:hover { color: var(--bg-deep); }
+      .band--light .carousel__arrow:hover,
+      .band--alt .carousel__arrow:hover { color: var(--bg); }
+      .carousel__arrow:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      .carousel__track {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: calc((100% - 2 * clamp(1rem, 2vw, 2rem)) / 3);
+        gap: clamp(1rem, 2vw, 2rem);
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-bottom: 0.5rem;
+      }
+      .carousel__track::-webkit-scrollbar { display: none; }
+
+      .project-card {
+        scroll-snap-align: start;
+        padding: clamp(1.5rem, 2.5vw, 2rem);
+        background: var(--bg);
+        color: var(--fg);
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        min-height: 260px;
+      }
+      .project-card__num {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .project-card h3 {
+        font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+        color: var(--fg);
+      }
+      .project-card p {
+        font-size: 0.95rem;
+        color: var(--fg);
+        opacity: 0.85;
+        flex: 1;
+      }
+      .project-card__meta {
+        font-size: 0.75rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding-top: 0.5rem;
+        border-top: 1px solid var(--border);
+      }
+
+      @media (max-width: 960px) {
+        .carousel__track { grid-auto-columns: calc((100% - 1rem) / 2); }
+      }
+      @media (max-width: 640px) {
+        .carousel__heading { flex-direction: column; align-items: flex-start; }
+        .carousel__track { grid-auto-columns: 85%; }
+      }
+
+      /* ---------- Ervaringen quote rotator ---------- */
+      .quotes {
+        text-align: center;
+        max-width: 820px;
+      }
+      .quotes__heading { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+      .quotes__heading h2 { margin-top: 0.75rem; }
+
+      .quotes__stage {
+        position: relative;
+        min-height: 260px;
+      }
+      .quote {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.6s var(--easing), transform 0.6s var(--easing);
+        pointer-events: none;
+      }
+      .quote.is-active {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+      }
+      .quote blockquote {
+        font-family: var(--font-display);
+        font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+        line-height: 1.35;
+        color: var(--fg);
+        max-width: 680px;
+        margin: 0;
+      }
+      .quote figcaption {
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .quotes__controls {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: clamp(1.5rem, 3vw, 2.5rem);
+      }
+
       /* ---------- CTA ---------- */
       .cta {
         text-align: center;
@@ -577,6 +1061,22 @@ const domain = "studiobayu.com";
       }
       .cta h2 { margin-block: 1rem 1.5rem; }
       .cta p { opacity: 0.9; margin-bottom: 2rem; }
+      .cta__actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+      .cta__mail {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin-bottom: 0;
+      }
+      .cta__mail a {
+        color: var(--fg);
+        border-bottom: 1px solid var(--border);
+      }
 
       /* ---------- Buttons ---------- */
       .btn {
@@ -593,56 +1093,12 @@ const domain = "studiobayu.com";
         transition: all var(--duration) var(--easing);
         border: 1px solid transparent;
       }
-      .btn--primary {
-        background: var(--fg);
-        color: var(--bg);
-      }
-      .btn--primary:hover {
-        background: var(--accent);
-        color: var(--fg);
-      }
-      .btn--ghost {
-        background: transparent;
-        color: var(--fg);
-        border-color: var(--fg);
-      }
-      .btn--ghost:hover {
-        background: var(--fg);
-        color: var(--bg);
-      }
-      .btn--inverse {
-        background: var(--fg-inverse);
-        color: var(--fg);
-      }
-      .btn--inverse:hover {
-        background: var(--accent);
-        color: var(--fg);
-      }
-
-      /* ---------- Link arrow ---------- */
-      .link-arrow {
-        font-family: var(--font-body);
-        font-size: 0.85rem;
-        font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--fg);
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 0.25rem;
-        transition: all var(--duration) var(--easing);
-      }
-      .link-arrow::after {
-        content: ' →';
-        display: inline-block;
-        transition: transform var(--duration) var(--easing);
-      }
-      .link-arrow:hover {
-        color: var(--accent);
-        border-color: var(--accent);
-      }
-      .link-arrow:hover::after {
-        transform: translateX(4px);
-      }
+      .btn--primary { background: var(--fg); color: var(--bg); }
+      .btn--primary:hover { background: var(--accent); color: var(--fg); }
+      .btn--ghost { background: transparent; color: var(--fg); border-color: var(--fg); }
+      .btn--ghost:hover { background: var(--fg); color: var(--bg); }
+      .btn--inverse { background: var(--fg-inverse); color: var(--fg); }
+      .btn--inverse:hover { background: var(--accent); color: var(--fg); }
 
       /* ---------- Placeholders ---------- */
       .placeholder {
@@ -685,7 +1141,22 @@ const domain = "studiobayu.com";
         background: var(--bg);
         padding-block: clamp(2.5rem, 5vw, 4rem);
         color: var(--fg);
+        position: relative;
+        isolation: isolate;
       }
+      .site-footer::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url('/assets/paper-texture.jpg');
+        background-size: cover;
+        background-position: center;
+        mix-blend-mode: multiply;
+        opacity: var(--grain-intensity);
+        pointer-events: none;
+        z-index: 0;
+      }
+      .site-footer > * { position: relative; z-index: 1; }
       .site-footer__inner {
         display: grid;
         grid-template-columns: 1fr auto 1fr;
@@ -717,10 +1188,7 @@ const domain = "studiobayu.com";
       }
       .site-footer__mail a { color: var(--fg); border-bottom: 1px solid var(--border); }
       @media (max-width: 860px) {
-        .site-footer__inner {
-          grid-template-columns: 1fr;
-          text-align: center;
-        }
+        .site-footer__inner { grid-template-columns: 1fr; text-align: center; }
         .site-footer__mail { text-align: center; }
       }
     </style>
