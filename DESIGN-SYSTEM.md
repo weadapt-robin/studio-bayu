@@ -160,22 +160,25 @@ Base-unit: **8px**. Schaal:
 
 ---
 
-## Matte grain (band-textuur)
+## Paper texture (band-oppervlak)
 
-Alle `.band`-elementen dragen een subtiele **matte grain** over hun flat base-color — een SVG-noise overlay via `::before` met `mix-blend-mode: multiply`. Geeft een tactiel, paper-achtig oppervlak dat aansluit bij de merkwaarden (*verfijnd, sereen, natuurlijk*) en de referentie van Cav Co.
+Alle `.band`-elementen dragen een subtiele **paper texture** — een organische plaster/papier-foto (`public/assets/paper-texture.jpg`, 1600px wide, ±384KB JPG) als overlay via `::before` met `mix-blend-mode: multiply`. Geeft elk blok een tactiel oppervlak dat aansluit bij de merkwaarden (*verfijnd, sereen, natuurlijk*) en de Cav Co. referentie.
 
 **Token**:
 ```css
---grain-intensity: 0.45;   /* 0.25 = nauwelijks zichtbaar, 0.60 = uitgesproken */
+--grain-intensity: 0.22;   /* 0.15 = bijna plat, 0.40 = duidelijk merkbaar */
 ```
 
 **Hoe het werkt**:
-- `.band::before` bevat een SVG `feTurbulence` (fractalNoise, baseFrequency 0.9, 2 octaves) als data-URI
-- `mix-blend-mode: multiply` zorgt dat de korrel de bandkleur aanneemt — geen aparte noise-kleur per band nodig
+- `.band::before` laadt `paper-texture.jpg` als `background-size: cover; background-position: center`
+- `mix-blend-mode: multiply` → de textuur neemt automatisch de bandkleur over (Vanilla, Warm-cream of Mountain)
 - `.band > * { z-index: 1 }` houdt content (tekst, placeholders) boven de overlay
 
 **Vignette (alleen deep band)**:
 `.band--deep::after` voegt een zachte radial-gradient toe (transparant in midden, subtiel donker naar randen) voor extra diepte.
+
+**Asset-notitie**:
+Bron was een 8.3MB PNG (2752×1536). Gecomprimeerd naar JPG q78 op 1600px width → 384KB. De JPG wordt eenmalig geladen en door alle bands hergebruikt.
 
 ---
 
