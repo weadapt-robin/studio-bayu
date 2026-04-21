@@ -81,6 +81,7 @@ const domain = "studiobayu.com";
         >
           <source src="/assets/gordijn-beweging-slowmotion.mp4" type="video/mp4" />
         </video>
+        <div class="hero__tint" aria-hidden="true"></div>
         <div class="container hero hero--centered">
           <div class="hero__copy">
             <span class="logo-mark logo-mark--md" role="img" aria-label="Studio Bayu"></span>
@@ -742,10 +743,21 @@ const domain = "studiobayu.com";
         height: 100%;
         object-fit: cover;
         object-position: center;
-        opacity: 0.45;
+        opacity: 0.22;
         z-index: 0;
         pointer-events: none;
       }
+      /* Subtiele tint — iets meer crème in het centrum voor leesbare copy */
+      .hero__tint {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center,
+          color-mix(in srgb, var(--bg) 28%, transparent) 0%,
+          transparent 72%);
+        z-index: 0;
+        pointer-events: none;
+      }
+      .band--hero > .container { z-index: 2; }
       @media (prefers-reduced-motion: reduce) {
         .hero__video { display: none; }
       }
