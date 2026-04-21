@@ -133,9 +133,13 @@ const domain = "studiobayu.com";
           </div>
           <div class="showcase__grid">
             <figure class="pillar">
-              <div class="placeholder placeholder--square placeholder--on-deep">
-                <span class="eyebrow eyebrow--inverse">01</span>
-              </div>
+              <img
+                src="/assets/DSCF2628.JPG"
+                alt="Heldere structuren — Studio Bayu werkwijze"
+                class="pillar__img"
+                loading="lazy"
+                decoding="async"
+              />
               <figcaption>
                 <h3>Heldere structuren</h3>
               </figcaption>
@@ -1151,6 +1155,13 @@ const domain = "studiobayu.com";
         object-fit: cover;
       }
       .split__img--portrait { aspect-ratio: 3 / 4; }
+      .pillar__img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: block;
+        border-radius: var(--radius-sm);
+      }
       .placeholder .eyebrow {
         color: var(--fg-inverse);
         opacity: 0.85;
