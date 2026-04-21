@@ -91,12 +91,16 @@ const domain = "studiobayu.com";
       </section>
 
       <!-- ============ INTRODUCTIE (id=introductie) ============ -->
-      <section id="introductie" class="band band--alt">
+      <section id="introductie" class="band band--deep">
         <div class="container split split--image-left fade-up">
           <div class="split__media">
-            <div class="placeholder placeholder--portrait">
-              <span class="eyebrow">Afbeelding · placeholder</span>
-            </div>
+            <img
+              src="/assets/studio_bayu.JPG"
+              alt="Lize van den Heuvel — Studio Bayu"
+              class="split__img split__img--portrait"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div class="split__copy">
             <span class="eyebrow">Introductie</span>
@@ -121,7 +125,7 @@ const domain = "studiobayu.com";
       </section>
 
       <!-- ============ WERKWIJZE (id=werkwijze) ============ -->
-      <section id="werkwijze" class="band band--deep fade-up">
+      <section id="werkwijze" class="band band--light fade-up">
         <div class="container showcase">
           <div class="showcase__heading">
             <span class="eyebrow eyebrow--inverse">Werkwijze</span>
@@ -169,7 +173,7 @@ const domain = "studiobayu.com";
       </section>
 
       <!-- ============ EXPERTISE (id=expertise) ============ -->
-      <section id="expertise" class="band band--light">
+      <section id="expertise" class="band band--deep">
         <div class="container services">
           <header class="services__heading fade-up">
             <span class="eyebrow">Expertise</span>
@@ -282,7 +286,7 @@ const domain = "studiobayu.com";
       </section>
 
       <!-- ============ VOOR WIE (id=voor-wie) ============ -->
-      <section id="voor-wie" class="band band--alt">
+      <section id="voor-wie" class="band band--light">
         <div class="container split split--image-right fade-up">
           <div class="split__copy">
             <span class="eyebrow">Voor wie</span>
@@ -419,7 +423,7 @@ const domain = "studiobayu.com";
       </section>
 
       <!-- ============ CTA / CONTACT (id=contact) ============ -->
-      <section id="contact" class="band band--alt fade-up">
+      <section id="contact" class="band band--deep fade-up">
         <div class="container cta">
           <span class="eyebrow">Kennismaken</span>
           <h2>Klaar om je operatie in beweging te brengen?</h2>
@@ -645,7 +649,8 @@ const domain = "studiobayu.com";
         scroll-margin-top: 5rem;
       }
       .band--light { background: var(--bg); color: var(--fg); }
-      .band--alt { background: var(--bg-warm); color: var(--fg); }
+      /* band--alt is in de 2-cyclus Serein-layout een alias voor deep */
+      .band--alt { background: var(--bg-warm); color: var(--fg-inverse); }
       .band--deep {
         background: var(--bg-deep);
         color: var(--fg-inverse);
@@ -653,6 +658,28 @@ const domain = "studiobayu.com";
       .band--deep h2,
       .band--deep h3,
       .band--deep p { color: var(--fg-inverse); }
+
+      /* Component-overrides binnen deep bands (2-cyclus layout) */
+      .band--deep .split__copy p,
+      .band--deep .service-card__body p,
+      .band--deep .service-expand__label,
+      .band--deep .service-expand__body,
+      .band--deep .service-expand__body p,
+      .band--deep .service-expand__body li,
+      .band--deep .feature-list li {
+        color: var(--fg-inverse);
+      }
+      .band--deep .service-expand {
+        border-top-color: color-mix(in srgb, var(--fg-inverse) 30%, transparent);
+      }
+      .band--deep .btn--ghost {
+        color: var(--fg-inverse);
+        border-color: var(--fg-inverse);
+      }
+      .band--deep .btn--ghost:hover {
+        background: var(--fg-inverse);
+        color: var(--fg);
+      }
 
       .band::before {
         content: '';
@@ -1116,6 +1143,14 @@ const domain = "studiobayu.com";
       .placeholder--portrait { aspect-ratio: 3 / 4; }
       .placeholder--square { aspect-ratio: 1 / 1; }
       .placeholder--wide { aspect-ratio: 16 / 9; }
+      .split__img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: var(--radius-sm);
+        object-fit: cover;
+      }
+      .split__img--portrait { aspect-ratio: 3 / 4; }
       .placeholder .eyebrow {
         color: var(--fg-inverse);
         opacity: 0.85;

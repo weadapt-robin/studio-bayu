@@ -107,20 +107,20 @@
 
 /* Palet B "Serein" (editorial taupe) — actief via <html data-theme="serein"> */
 :root[data-theme="serein"] {
-  --bg: #F2EDE4;          /* Zacht Crème — light band (Onze Story / Filosofie) */
-  --bg-warm: #B7B0A4;     /* Steengrijs — band--alt (mid-tone) */
-  --bg-alt: #B7B0A4;      /* Steengrijs */
-  --bg-deep: #8B8372;     /* Aards Taupe — contrast-band (Serein sectie) */
-  --fg: #242424;          /* Diep Houtskool — body + headings */
+  --bg: #F2EDE4;          /* Zacht Crème — light band (afwisselend met deep) */
+  --bg-warm: #8B8372;     /* Aards Taupe — band--alt = deep in 2-cyclus */
+  --bg-alt: #8B8372;      /* Aards Taupe */
+  --bg-deep: #8B8372;     /* Aards Taupe — contrast-band */
+  --fg: #6B6559;          /* Warm grey — body + headings (voorheen Diep Houtskool) */
   --fg-inverse: #F2EDE4;  /* Zacht Crème op --bg-deep */
   --accent: #D9AC5F;      /* Goudgeel — CTA, links, highlights */
   --muted: #6B6559;       /* Warm grey — secundaire tekst */
   --border: #B7B0A4;      /* Steengrijs — subtiele lijnen */
 
-  /* Shadows hertinten op Diep Houtskool (#242424) */
-  --shadow-sm: 0 1px 2px rgba(36, 36, 36, 0.06);
-  --shadow-md: 0 4px 16px rgba(36, 36, 36, 0.08);
-  --shadow-lg: 0 16px 48px rgba(36, 36, 36, 0.12);
+  /* Shadows hertinten op Warm grey (#6B6559) */
+  --shadow-sm: 0 1px 2px rgba(107, 101, 89, 0.06);
+  --shadow-md: 0 4px 16px rgba(107, 101, 89, 0.08);
+  --shadow-lg: 0 16px 48px rgba(107, 101, 89, 0.12);
 }
 
 /* ---------- Reset + base ---------- */

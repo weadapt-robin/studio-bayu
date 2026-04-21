@@ -31,21 +31,21 @@
 
 ---
 
-## Homepage structuur (alternerende band-kleuren, 3-cyclus Light → Warm → Deep)
+## Homepage structuur (alternerende band-kleuren, 2-cyclus Light ↔ Deep)
 
-1. Hero (`#home`) — `band--light` (Vanilla) — gecentreerde copy + 2 CTAs
-2. Introductie (`#introductie`) — `band--alt` (Warm-cream) — Lize's intro + over Studio Bayu
-3. Werkwijze (`#werkwijze`) — `band--deep` (Mountain) — 3 pijlers (Heldere structuren / Sterke aansturing / Voorspelbare uitvoering)
-4. Expertise (`#expertise`) — `band--light` — 3 service-cards met `<details>` accordions:
+1. Hero (`#home`) — `band--light` (Zacht Crème) — gecentreerde copy + 2 CTAs
+2. Introductie (`#introductie`) — `band--deep` (Aards Taupe) — Lize's intro + over Studio Bayu + portretfoto
+3. Werkwijze (`#werkwijze`) — `band--light` — 3 pijlers (Heldere structuren / Sterke aansturing / Voorspelbare uitvoering)
+4. Expertise (`#expertise`) — `band--deep` — 3 service-cards met `<details>` accordions:
    - `#expertise-projectmanagement`
    - `#expertise-operations`
    - `#expertise-events`
-5. Voor wie (`#voor-wie`) — `band--alt` — bullet-lijst
+5. Voor wie (`#voor-wie`) — `band--light` — bullet-lijst
 6. Projecten (`#projecten`) — `band--deep` — horizontal scroll carousel (5 placeholder cases, swipebaar met pijltjes)
 7. Ervaringen (`#ervaringen`) — `band--light` — quote-rotator (7 quotes, auto-rotate 5.5s + manual pijltjes)
-8. Contact (`#contact`) — `band--alt` — mailto-CTAs naar `lize@studiobayu.com`
+8. Contact (`#contact`) — `band--deep` — mailto-CTAs naar `lize@studiobayu.com`
 
-Strikte regel: **nooit twee opeenvolgende bands dezelfde kleur**. Als je een sectie toevoegt, herverdeel de classes.
+Strikte regel: **bands wisselen strikt af tussen `band--light` en `band--deep`**. Gebruik geen `band--alt` meer (is aliased naar deep maar levert geen automatische `--fg-inverse` tekstkleur). Voeg je een sectie toe, zorg dat de volgorde afwisselend blijft.
 
 ---
 

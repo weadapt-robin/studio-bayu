@@ -53,21 +53,21 @@ Oorspronkelijk palet, warm-aards editorial.
 
 ### Palet B — Serein (editorial taupe) — actief
 
-Officieel Serein-palet. 5 kleuren vastgelegd in de brand-spec.
+Officieel Serein-palet met 2-cyclus band-layout (light ↔ deep).
 
 | Token | Hex | Naam | Gebruik |
 |---|---|---|---|
-| `--bg` | `#F2EDE4` | Zacht Crème | Primaire achtergrond (light band — Onze Story / Filosofie) |
-| `--bg-warm` | `#B7B0A4` | Steengrijs | `band--alt` (mid-tone voor 3-band-cyclus) |
-| `--bg-alt` | `#B7B0A4` | Steengrijs | Sectie-contrast, subtiele cards |
-| `--bg-deep` | `#8B8372` | Aards Taupe | Contrast-band (Serein sectie) |
-| `--fg` | `#242424` | Diep Houtskool | Body + headings (alle secties) |
+| `--bg` | `#F2EDE4` | Zacht Crème | Primaire achtergrond (light band) |
+| `--bg-warm` | `#8B8372` | Aards Taupe | `band--alt` (alias voor deep in 2-cyclus) |
+| `--bg-alt` | `#8B8372` | Aards Taupe | alias voor deep |
+| `--bg-deep` | `#8B8372` | Aards Taupe | Contrast-band |
+| `--fg` | `#6B6559` | Warm grey | Body + headings op light bands |
 | `--fg-inverse` | `#F2EDE4` | — | Tekst op `--bg-deep` |
 | `--accent` | `#D9AC5F` | Goudgeel | CTA's, links, highlights |
-| `--muted` | `#6B6559` | Warm grey | Secundaire tekst |
+| `--muted` | `#6B6559` | Warm grey | Secundaire tekst (valt samen met `--fg`) |
 | `--border` | `#B7B0A4` | Steengrijs | Subtiele lijnen, shadows & texturen |
 
-Shadows zijn in Palet B hertint op Diep Houtskool (`rgba(36,36,36, ...)`) ipv Mahogany.
+Shadows zijn in Palet B hertint op Warm grey (`rgba(107,101,89, ...)`).
 
 ### Semantic (beide paletten — ongewijzigd)
 
