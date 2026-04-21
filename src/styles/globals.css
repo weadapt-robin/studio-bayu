@@ -57,8 +57,9 @@
 /* ---------- Tokens ---------- */
 
 :root {
-  /* Kleuren — palette "Studio Bayu" (warm editorial) */
+  /* Kleuren — Palet A "Studio Bayu" (warm vanilla) — inactief, bewaard als alternatief */
   --bg: #F1EADA;          /* Vanilla */
+  --bg-warm: #E5D9BF;     /* Warm-cream — band--alt */
   --bg-alt: #CEC1A8;      /* Sand */
   --bg-deep: #AAA396;     /* Mountain — contrast-band */
   --fg: #584738;          /* Mahogany — body + headings */
@@ -102,6 +103,24 @@
   /* Motion */
   --duration: 400ms;
   --easing: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Palet B "Serein" (editorial taupe) — actief via <html data-theme="serein"> */
+:root[data-theme="serein"] {
+  --bg: #E9E2D3;          /* Soft cream — light band */
+  --bg-warm: #B6AC96;     /* Olive-taupe — band--alt */
+  --bg-alt: #B6AC96;      /* Olive-taupe */
+  --bg-deep: #787363;     /* Mushroom-olive — contrast-band */
+  --fg: #1F1B17;          /* Ink — body + headings */
+  --fg-inverse: #E6DECF;  /* Light cream — op --bg-deep */
+  --accent: #9C8E77;      /* Medium taupe */
+  --muted: #7A7063;       /* Warm grey */
+  --border: #D3C9B6;      /* Stone */
+
+  /* Shadows hertinten op Ink (#1F1B17) ipv Mahogany */
+  --shadow-sm: 0 1px 2px rgba(31, 27, 23, 0.06);
+  --shadow-md: 0 4px 16px rgba(31, 27, 23, 0.08);
+  --shadow-lg: 0 16px 48px rgba(31, 27, 23, 0.12);
 }
 
 /* ---------- Reset + base ---------- */

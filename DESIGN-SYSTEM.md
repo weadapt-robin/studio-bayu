@@ -26,11 +26,23 @@ Deze file is de single source of truth voor visuele en technische keuzes. Raadpl
 
 ## Kleuren
 
-Palette "Studio Bayu" — warm-aards, editorial.
+Twee paletten zijn vastgelegd. Schakelen gebeurt via één attribuut op `<html>`.
+
+**Actief palet: B — Serein** (via `<html data-theme="serein">` in `src/pages/index.astro`)
+
+### Hoe te switchen
+
+- **Palet A** (Studio Bayu): haal het attribuut weg → `<html lang="nl">`
+- **Palet B** (Serein): zet het attribuut → `<html lang="nl" data-theme="serein">`
+
+### Palet A — Studio Bayu (warm vanilla) — inactief
+
+Oorspronkelijk palet, warm-aards editorial.
 
 | Token | Hex | Naam | Gebruik |
 |---|---|---|---|
-| `--bg` | `#F1EADA` | Vanilla | Primaire achtergrond |
+| `--bg` | `#F1EADA` | Vanilla | Primaire achtergrond (light band) |
+| `--bg-warm` | `#E5D9BF` | Warm-cream | `band--alt` (alt band) |
 | `--bg-alt` | `#CEC1A8` | Sand | Sectie-contrast, subtiele cards |
 | `--bg-deep` | `#AAA396` | Mountain | Donkere contrast-band |
 | `--fg` | `#584738` | Mahogany | Body + headings op light |
@@ -39,7 +51,25 @@ Palette "Studio Bayu" — warm-aards, editorial.
 | `--muted` | `#8A7F6F` | — | Secundaire tekst |
 | `--border` | `#D9CFB8` | — | Subtiele lijnen |
 
-### Semantic (harmonieus met palet)
+### Palet B — Serein (editorial taupe) — actief
+
+Koeler, donkerder editorial palet. Bron: referentie-afbeelding (cream blokken + olive-taupe kader + mushroom dark band).
+
+| Token | Hex | Naam | Gebruik |
+|---|---|---|---|
+| `--bg` | `#E9E2D3` | Soft cream | Primaire achtergrond (light band) |
+| `--bg-warm` | `#B6AC96` | Olive-taupe | `band--alt` (alt band) |
+| `--bg-alt` | `#B6AC96` | Olive-taupe | Sectie-contrast, subtiele cards |
+| `--bg-deep` | `#787363` | Mushroom-olive | Donkere contrast-band (SEREIN-ref) |
+| `--fg` | `#1F1B17` | Ink | Body + headings op light |
+| `--fg-inverse` | `#E6DECF` | Light cream | Tekst op `--bg-deep` |
+| `--accent` | `#9C8E77` | Medium taupe | CTA's, links, highlights |
+| `--muted` | `#7A7063` | Warm grey | Secundaire tekst |
+| `--border` | `#D3C9B6` | Stone | Subtiele lijnen |
+
+Shadows zijn in Palet B hertint op Ink (`rgba(31,27,23, ...)`) ipv Mahogany.
+
+### Semantic (beide paletten — ongewijzigd)
 
 | Token | Hex | Gebruik |
 |---|---|---|
@@ -49,9 +79,9 @@ Palette "Studio Bayu" — warm-aards, editorial.
 
 ### Sectie-patronen
 
-- `.section` — default: Vanilla bg + Mahogany fg
-- `.section--alt` — Sand bg (zachte contrast-band)
-- `.section--deep` — Mountain bg + Vanilla fg (donkere showcase-band, zoals SEREIN in ref)
+- `.section` / `.band--light` — `--bg` + `--fg`
+- `.section--alt` / `.band--alt` — `--bg-warm` + `--fg`
+- `.section--deep` / `.band--deep` — `--bg-deep` + `--fg-inverse`
 
 ---
 
