@@ -53,21 +53,21 @@ Oorspronkelijk palet, warm-aards editorial.
 
 ### Palet B — Serein (editorial taupe) — actief
 
-Koeler, donkerder editorial palet. Bron: referentie-afbeelding (cream blokken + olive-taupe kader + mushroom dark band).
+Officieel Serein-palet. 5 kleuren vastgelegd in de brand-spec.
 
 | Token | Hex | Naam | Gebruik |
 |---|---|---|---|
-| `--bg` | `#E9E2D3` | Soft cream | Primaire achtergrond (light band) |
-| `--bg-warm` | `#B6AC96` | Olive-taupe | `band--alt` (alt band) |
-| `--bg-alt` | `#B6AC96` | Olive-taupe | Sectie-contrast, subtiele cards |
-| `--bg-deep` | `#787363` | Mushroom-olive | Donkere contrast-band (SEREIN-ref) |
-| `--fg` | `#1F1B17` | Ink | Body + headings op light |
-| `--fg-inverse` | `#E6DECF` | Light cream | Tekst op `--bg-deep` |
-| `--accent` | `#9C8E77` | Medium taupe | CTA's, links, highlights |
-| `--muted` | `#7A7063` | Warm grey | Secundaire tekst |
-| `--border` | `#D3C9B6` | Stone | Subtiele lijnen |
+| `--bg` | `#F2EDE4` | Zacht Crème | Primaire achtergrond (light band — Onze Story / Filosofie) |
+| `--bg-warm` | `#B7B0A4` | Steengrijs | `band--alt` (mid-tone voor 3-band-cyclus) |
+| `--bg-alt` | `#B7B0A4` | Steengrijs | Sectie-contrast, subtiele cards |
+| `--bg-deep` | `#8B8372` | Aards Taupe | Contrast-band (Serein sectie) |
+| `--fg` | `#242424` | Diep Houtskool | Body + headings (alle secties) |
+| `--fg-inverse` | `#F2EDE4` | — | Tekst op `--bg-deep` |
+| `--accent` | `#D9AC5F` | Goudgeel | CTA's, links, highlights |
+| `--muted` | `#6B6559` | Warm grey | Secundaire tekst |
+| `--border` | `#B7B0A4` | Steengrijs | Subtiele lijnen, shadows & texturen |
 
-Shadows zijn in Palet B hertint op Ink (`rgba(31,27,23, ...)`) ipv Mahogany.
+Shadows zijn in Palet B hertint op Diep Houtskool (`rgba(36,36,36, ...)`) ipv Mahogany.
 
 ### Semantic (beide paletten — ongewijzigd)
 
