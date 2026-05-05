@@ -105,12 +105,12 @@ const domain = "studiobayu.com";
 
       <!-- ============ INTRODUCTIE (id=introductie) ============ -->
       <section id="introductie" class="band band--deep">
-        <div class="container split split--image-left split--intro fade-up">
+        <div class="container split split--image-left fade-up">
           <div class="split__media">
             <img
               src="/assets/studio_bayu.JPG"
               alt="Lize van den Heuvel — Studio Bayu"
-              class="split__img split__img--fill"
+              class="split__img split__img--portrait"
               loading="lazy"
               decoding="async"
             />
@@ -138,14 +138,21 @@ const domain = "studiobayu.com";
               projectteams en stuur ik projectmanagers aan binnen lopende trajecten, waarbij
               ik zorg dat planning, kwaliteit en voortgang op elkaar aansluiten.
             </p>
-            <p>
-              Die flexibiliteit maakt dat ik snel kan instappen waar nodig, altijd met als
-              doel om structuur, focus en helderheid te brengen in de operatie en uitvoering.
-            </p>
-            <p>
-              Ik werk het liefst in omgevingen waar veel tegelijk gebeurt en waar behoefte is
-              aan rust, overzicht en richting.
-            </p>
+            <details class="intro-expand">
+              <summary>
+                <span class="intro-expand__label">Meer weergeven</span>
+              </summary>
+              <div class="intro-expand__body">
+                <p>
+                  Die flexibiliteit maakt dat ik snel kan instappen waar nodig, altijd met als
+                  doel om structuur, focus en helderheid te brengen in de operatie en uitvoering.
+                </p>
+                <p>
+                  Ik werk het liefst in omgevingen waar veel tegelijk gebeurt en waar behoefte
+                  is aan rust, overzicht en richting.
+                </p>
+              </div>
+            </details>
           </div>
         </div>
       </section>
@@ -828,6 +835,43 @@ const domain = "studiobayu.com";
       .split--image-right .split__copy { order: 0; }
       .split__copy .eyebrow { display: block; margin-bottom: 1.25rem; }
       .split__copy h2 { margin-bottom: 1.75rem; }
+
+      /* Intro: meer-weergeven accordion */
+      .intro-expand {
+        margin-top: 1rem;
+        border-top: 1px solid color-mix(in srgb, var(--fg-inverse) 25%, transparent);
+      }
+      .intro-expand > summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 0.9rem 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: var(--fg-inverse);
+      }
+      .intro-expand > summary::-webkit-details-marker { display: none; }
+      .intro-expand__label {
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .intro-expand > summary::after {
+        content: '+';
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--accent);
+        transition: transform var(--duration) var(--easing);
+      }
+      .intro-expand[open] > summary::after { transform: rotate(45deg); }
+      .intro-expand > summary:hover { color: var(--accent); }
+      .intro-expand__body {
+        padding-top: 0.25rem;
+        padding-bottom: 0.5rem;
+      }
+      .intro-expand__body p + p { margin-top: 1rem; }
       .split__copy h2 em { font-style: italic; color: var(--accent); }
       .split__copy p + p { margin-top: 1rem; }
       .split__copy p { color: var(--fg); opacity: 0.9; }
@@ -1237,22 +1281,6 @@ const domain = "studiobayu.com";
         object-fit: cover;
       }
       .split__img--portrait { aspect-ratio: 3 / 4; }
-      .split--intro { align-items: stretch; }
-      .split--intro .split__media {
-        display: flex;
-        min-height: 100%;
-      }
-      .split__img--fill {
-        width: 100%;
-        height: 100%;
-        min-height: 100%;
-        object-fit: cover;
-        object-position: center top;
-      }
-      @media (max-width: 860px) {
-        .split--intro { align-items: center; }
-        .split__img--fill { aspect-ratio: 3 / 4; height: auto; min-height: 0; }
-      }
       .pillar__img {
         width: 100%;
         aspect-ratio: 1 / 1;
