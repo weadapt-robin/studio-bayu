@@ -10,12 +10,12 @@
 ## Over dit project
 
 - **Projectnaam:** studio-bayu
-- **Domein:** studiobayu.com (nog niet gekoppeld — momenteel via `studio-bayu.vercel.app`)
+- **Domein:** studiobayu.com (live, gekoppeld aan Vercel via Squarespace nameservers)
 - **Eigenaar:** Lize van den Heuvel — project- en operations specialist
 - **Type site:** Portfolio (single-page marketing + services)
 - **Talen:** Single-language (NL)
-- **Live:** https://studio-bayu.vercel.app
-- **Edit (alleen Lize):** https://studio-bayu.vercel.app/?edit=1
+- **Live:** https://studiobayu.com
+- **Edit (alleen Lize):** https://studiobayu.com/?edit=1
 - **GitHub:** https://github.com/weadapt-robin/studio-bayu
 
 ---
@@ -163,13 +163,12 @@ git push                        # triggert Vercel auto-deploy
 vercel --prod --yes             # optioneel: forceer direct deploy zonder te wachten op webhook
 ```
 
-Deploy-URL verifiëren met `curl -s -o /dev/null -w "%{http_code}" https://studio-bayu.vercel.app`.
+Deploy-URL verifiëren met `curl -s -o /dev/null -w "%{http_code}" https://studiobayu.com`.
 
 ---
 
 ## Openstaande TODO's (post-launch)
 
-- Domein `studiobayu.com` DNS koppelen aan Vercel
 - Echte OG-image (`public/og-preview.png` — nu placeholder)
 - Echte favicon (`public/favicon.png`)
 - Analytics (Plausible / GA4 / Meta Pixel — user-keuze)
