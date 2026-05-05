@@ -91,7 +91,7 @@ const domain = "studiobayu.com";
               Operations &amp; (lead) projectmanagement voor agencies en brands.
             </p>
             <p>
-              Ik help teams en organisaties om complexe projecten te structureren, aan te sturen
+              Ik help teams en organisaties om projecten te structureren, aan te sturen
               en te realiseren van strategie tot uitvoering. Met focus op overzicht,
               samenwerking en een soepel lopende operatie.
             </p>
@@ -105,18 +105,18 @@ const domain = "studiobayu.com";
 
       <!-- ============ INTRODUCTIE (id=introductie) ============ -->
       <section id="introductie" class="band band--deep">
-        <div class="container split split--image-left fade-up">
+        <div class="container split split--image-left split--intro fade-up">
           <div class="split__media">
             <img
               src="/assets/studio_bayu.JPG"
               alt="Lize van den Heuvel — Studio Bayu"
-              class="split__img split__img--portrait"
+              class="split__img split__img--fill"
               loading="lazy"
               decoding="async"
             />
           </div>
           <div class="split__copy">
-            <span class="eyebrow">Introductie</span>
+            <span class="eyebrow eyebrow--inverse">Introductie</span>
             <h2>Over Studio Bayu</h2>
             <p>
               Hi, ik ben <strong>Lize</strong>, project- en operations specialist.
@@ -161,10 +161,8 @@ const domain = "studiobayu.com";
           <div class="services__grid">
 
             <article id="expertise-projectmanagement" class="service-card fade-up">
-              <div class="placeholder placeholder--portrait">
-                <span class="eyebrow">01</span>
-              </div>
               <div class="service-card__body">
+                <span class="eyebrow service-card__num">01</span>
                 <h3>(Lead) Projectmanagement</h3>
                 <p>
                   Studio Bayu leidt projecten van begin tot eind en zorgt dat strategie wordt
@@ -185,22 +183,14 @@ const domain = "studiobayu.com";
                       de dagelijkse voortgang en zorg dat projecten niet alleen goed worden
                       opgezet, maar ook strak worden afgerond.
                     </p>
-                    <ul>
-                      <li>vertaling van strategie naar planning</li>
-                      <li>aansturing van teams en klanten</li>
-                      <li>bewaking van scope, budget en timing</li>
-                      <li>continue afstemming met stakeholders</li>
-                    </ul>
                   </div>
                 </details>
               </div>
             </article>
 
             <article id="expertise-operations" class="service-card fade-up">
-              <div class="placeholder placeholder--portrait">
-                <span class="eyebrow">02</span>
-              </div>
               <div class="service-card__body">
+                <span class="eyebrow service-card__num">02</span>
                 <h3>Operations &amp; procesoptimalisatie</h3>
                 <p>
                   Studio Bayu kijkt naar hoe teams werken en vertaalt dat naar structuur die
@@ -224,22 +214,14 @@ const domain = "studiobayu.com";
                       Zo worden teams, processen en tools met elkaar verbonden, zodat werk
                       niet versnipperd raakt maar als één geheel blijft bewegen.
                     </p>
-                    <ul>
-                      <li>workflow- en procesontwerp</li>
-                      <li>rollen en verantwoordelijkheden</li>
-                      <li>interne communicatie en overdracht</li>
-                      <li>automatisering, AI en tooling-integratie</li>
-                    </ul>
                   </div>
                 </details>
               </div>
             </article>
 
             <article id="expertise-events" class="service-card fade-up">
-              <div class="placeholder placeholder--portrait">
-                <span class="eyebrow">03</span>
-              </div>
               <div class="service-card__body">
+                <span class="eyebrow service-card__num">03</span>
                 <h3>Events &amp; weddings</h3>
                 <p>
                   Naast werk voor agencies en brands ondersteunt Studio Bayu selectief bij
@@ -255,12 +237,6 @@ const domain = "studiobayu.com";
                       Van concept tot productie wordt meegedacht en meegestuurd, zodat het
                       geheel klopt, van de grote lijn tot de kleinste details op de dag zelf.
                     </p>
-                    <ul>
-                      <li>concept en draaiboek</li>
-                      <li>leveranciers-coördinatie</li>
-                      <li>planning en timing</li>
-                      <li>on-site aansturing</li>
-                    </ul>
                   </div>
                 </details>
               </div>
@@ -272,22 +248,15 @@ const domain = "studiobayu.com";
 
       <!-- ============ VOOR WIE (id=voor-wie) ============ -->
       <section id="voor-wie" class="band band--deep">
-        <div class="container split split--image-right fade-up">
-          <div class="split__copy">
-            <span class="eyebrow eyebrow--inverse">Voor wie</span>
-            <h2>Studio Bayu werkt met…</h2>
-            <ul class="feature-list">
-              <li>agencies en brands die meerdere projecten tegelijk draaien</li>
-              <li>teams met behoefte aan structuur in de operatie</li>
-              <li>organisaties die willen opschalen zonder chaos</li>
-              <li>opdrachtgevers die iemand zoeken die verantwoordelijkheid neemt in uitvoering</li>
-            </ul>
-          </div>
-          <div class="split__media">
-            <div class="placeholder placeholder--portrait placeholder--on-deep">
-              <span class="eyebrow">Afbeelding · placeholder</span>
-            </div>
-          </div>
+        <div class="container voor-wie fade-up">
+          <span class="eyebrow eyebrow--inverse">Voor wie</span>
+          <h2>Studio Bayu werkt met…</h2>
+          <ul class="feature-list">
+            <li>agencies en brands die meerdere projecten tegelijk draaien</li>
+            <li>teams met behoefte aan structuur in de operatie</li>
+            <li>organisaties die willen opschalen zonder chaos</li>
+            <li>opdrachtgevers die iemand zoeken die verantwoordelijkheid neemt in uitvoering</li>
+          </ul>
         </div>
       </section>
 
@@ -924,6 +893,11 @@ const domain = "studiobayu.com";
         flex-direction: column;
         gap: 1.5rem;
       }
+      .service-card__num {
+        display: block;
+        margin-bottom: 0.75rem;
+        color: var(--accent);
+      }
       .service-card__body h3 {
         margin-bottom: 0.75rem;
         font-size: clamp(1.1rem, 1.4vw, 1.3rem);
@@ -999,6 +973,19 @@ const domain = "studiobayu.com";
 
       @media (max-width: 860px) {
         .services__grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+      }
+
+      /* ---------- Voor wie ---------- */
+      .voor-wie {
+        max-width: 720px;
+        margin-inline: auto;
+        text-align: center;
+      }
+      .voor-wie h2 { margin-block: 1rem 2rem; }
+      .voor-wie .feature-list {
+        max-width: 560px;
+        margin-inline: auto;
+        text-align: left;
       }
 
       /* ---------- Feature list (Voor wie) ---------- */
@@ -1250,6 +1237,22 @@ const domain = "studiobayu.com";
         object-fit: cover;
       }
       .split__img--portrait { aspect-ratio: 3 / 4; }
+      .split--intro { align-items: stretch; }
+      .split--intro .split__media {
+        display: flex;
+        min-height: 100%;
+      }
+      .split__img--fill {
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+      @media (max-width: 860px) {
+        .split--intro { align-items: center; }
+        .split__img--fill { aspect-ratio: 3 / 4; height: auto; min-height: 0; }
+      }
       .pillar__img {
         width: 100%;
         aspect-ratio: 1 / 1;
