@@ -64,7 +64,26 @@ const domain = "studiobayu.com";
           <a href="#ervaringen">Ervaringen</a>
           <a href="#contact">Contact</a>
         </nav>
+        <button
+          type="button"
+          class="site-header__toggle"
+          aria-label="Menu openen"
+          aria-expanded="false"
+          aria-controls="site-menu-mobile"
+        >
+          <span></span>
+          <span></span>
+        </button>
       </div>
+      <nav id="site-menu-mobile" class="site-menu-mobile" aria-label="Mobiele navigatie" data-open="false">
+        <a href="#home">Home</a>
+        <a href="#introductie">Studio Bayu</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#voor-wie">Voor wie</a>
+        <a href="#projecten">Projecten</a>
+        <a href="#ervaringen">Ervaringen</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
 
     <main>
@@ -511,6 +530,24 @@ const domain = "studiobayu.com";
     <Inspector />
 
     <script is:inline>
+      // Mobile hamburger toggle
+      (function () {
+        const toggle = document.querySelector('.site-header__toggle');
+        const menu = document.getElementById('site-menu-mobile');
+        if (!toggle || !menu) return;
+        const setOpen = (open) => {
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+          menu.dataset.open = String(open);
+        };
+        toggle.addEventListener('click', () => {
+          setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+        menu.querySelectorAll('a').forEach((a) => {
+          a.addEventListener('click', () => setOpen(false));
+        });
+      })();
+
       // Fade-up on scroll
       const io = new IntersectionObserver((entries) => {
         for (const entry of entries) {
@@ -636,6 +673,60 @@ const domain = "studiobayu.com";
       }
       .site-header__nav a { color: var(--fg); }
 
+      /* Hamburger toggle (mobiel) */
+      .site-header__toggle {
+        display: none;
+        position: relative;
+        width: 40px;
+        height: 32px;
+        background: transparent;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+      }
+      .site-header__toggle span {
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        height: 1.5px;
+        background: var(--fg);
+        border-radius: 1px;
+        transition: transform var(--duration) var(--easing),
+                    top var(--duration) var(--easing),
+                    opacity var(--duration) var(--easing);
+      }
+      .site-header__toggle span:nth-child(1) { top: 12px; }
+      .site-header__toggle span:nth-child(2) { top: 19px; }
+      .site-header__toggle[aria-expanded="true"] span:nth-child(1) {
+        top: 15px;
+        transform: rotate(45deg);
+      }
+      .site-header__toggle[aria-expanded="true"] span:nth-child(2) {
+        top: 15px;
+        transform: rotate(-45deg);
+      }
+
+      /* Mobile dropdown menu */
+      .site-menu-mobile {
+        display: none;
+        flex-direction: column;
+        gap: 0.25rem;
+        background: var(--bg);
+        border-top: 1px solid var(--border);
+        padding: 1rem clamp(1.25rem, 3vw, 2.5rem) 1.5rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .site-menu-mobile a {
+        color: var(--fg);
+        padding: 0.65rem 0;
+        border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+      }
+      .site-menu-mobile a:last-child { border-bottom: 0; }
+      .site-menu-mobile[data-open="true"] { display: flex; }
+
       /* Dropdown onder Expertise */
       .nav-item { position: relative; }
       .nav-item__link { display: inline-block; }
@@ -682,6 +773,21 @@ const domain = "studiobayu.com";
       }
       @media (max-width: 860px) {
         .site-header__nav { display: none; }
+        .site-header__toggle { display: inline-block; }
+      }
+
+      /* Mobiel: frame collapsen zodat bands edge-to-edge zijn */
+      @media (max-width: 640px) {
+        :root {
+          --frame-x: 0px;
+          --frame-top: 0px;
+          --frame-header-gap: 0px;
+          --frame-gap: 0px;
+        }
+        .site-header__inner,
+        .site-footer__inner {
+          padding-inline: clamp(1.25rem, 5vw, 1.75rem);
+        }
       }
 
       /* ---------- Band system ---------- */
