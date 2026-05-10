@@ -543,8 +543,44 @@ const domain = "studiobayu.com";
           setOpen(toggle.getAttribute('aria-expanded') !== 'true');
         });
         menu.querySelectorAll('a').forEach((a) => {
-          a.addEventListener('click', () => setTimeout(() => setOpen(false), 50));
+          a.addEventListener('click', (e) => {
+            e.preventDefault();
+            const href = a.getAttribute('href');
+            setOpen(false);
+            requestAnimationFrame(() => {
+              const target = document.querySelector(href);
+              if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+          });
         });
+      })();
+
+      // Auto-hide header on scroll-down, reveal on scroll-up
+      (function () {
+        const header = document.querySelector('.site-header');
+        if (!header) return;
+        let lastY = window.scrollY;
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            requestAnimationFrame(() => {
+              const y = window.scrollY;
+              const menuOpen = document.getElementById('site-menu-mobile')?.dataset.open === 'true';
+              if (!menuOpen) {
+                if (y <= 80) {
+                  header.classList.remove('header--hidden');
+                } else if (y > lastY + 4) {
+                  header.classList.add('header--hidden');
+                } else if (y < lastY - 4) {
+                  header.classList.remove('header--hidden');
+                }
+              }
+              lastY = y;
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
       })();
 
       // Fade-up on scroll
@@ -645,6 +681,10 @@ const domain = "studiobayu.com";
         z-index: 50;
         margin: var(--frame-top) var(--frame-x) var(--frame-header-gap);
         background: transparent;
+        transition: transform 0.35s ease;
+      }
+      .site-header.header--hidden {
+        transform: translateY(calc(-100% - var(--frame-top)));
       }
       .site-header__inner {
         display: flex;
