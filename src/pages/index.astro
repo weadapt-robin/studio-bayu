@@ -906,8 +906,10 @@ const domain = "studiobayu.com";
       .band--hero { isolation: isolate; }
       .hero__video {
         position: absolute;
-        inset: 0;
-        height: 100%;
+        top: 0;
+        bottom: 0;
+        left: calc(-1 * var(--frame-x));
+        right: calc(-1 * var(--frame-x));
         object-fit: cover;
         object-position: 35% center;
         opacity: 0.22;
@@ -915,15 +917,12 @@ const domain = "studiobayu.com";
         z-index: 0;
         pointer-events: none;
       }
-      /* Sluier: boven→crème, zijkanten→frame-kleur (#c7c1b2) */
+      /* Sluier bovenaan voor header-merge */
       .band--hero::before {
         content: '';
         position: absolute;
         inset: 0;
-        background:
-          linear-gradient(to bottom, var(--bg) 0%, rgba(242,237,228,0) 35%),
-          linear-gradient(to right,  #c7c1b2 0%, rgba(199,193,178,0) 20%),
-          linear-gradient(to left,   #c7c1b2 0%, rgba(199,193,178,0) 20%);
+        background: linear-gradient(to bottom, var(--bg) 0%, rgba(242,237,228,0) 35%);
         z-index: 1;
         pointer-events: none;
       }
