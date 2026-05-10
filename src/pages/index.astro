@@ -101,7 +101,6 @@ const domain = "studiobayu.com";
         >
           <source src="/assets/website-banner.mp4" type="video/mp4" />
         </video>
-        <div class="hero__tint" aria-hidden="true"></div>
         <div class="container hero hero--centered">
           <div class="hero__copy">
             <span class="logo-mark logo-mark--md" role="img" aria-label="Studio Bayu"></span>
@@ -873,16 +872,6 @@ const domain = "studiobayu.com";
         object-fit: cover;
         object-position: center;
         opacity: 0.32;
-        z-index: 0;
-        pointer-events: none;
-      }
-      /* Subtiele tint — iets meer crème in het centrum voor leesbare copy */
-      .hero__tint {
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(ellipse at center,
-          color-mix(in srgb, var(--bg) 28%, transparent) 0%,
-          transparent 72%);
         z-index: 0;
         pointer-events: none;
       }
