@@ -906,12 +906,12 @@ const domain = "studiobayu.com";
       .band--hero { isolation: isolate; overflow: hidden; }
       .hero__video {
         position: absolute;
-        inset: 0 -2px;
+        inset: 0;
         height: 100%;
         object-fit: cover;
         object-position: center;
-        opacity: 0.45;
-        mix-blend-mode: multiply;
+        opacity: 0.2;
+        filter: grayscale(1) contrast(0.8);
         z-index: 0;
         pointer-events: none;
       }
