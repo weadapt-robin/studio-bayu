@@ -243,14 +243,28 @@ p {
 
 .fade-up {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity var(--duration) var(--easing),
-              transform var(--duration) var(--easing);
+  transform: translateY(20px);
+  transition: opacity 500ms var(--easing),
+              transform 500ms var(--easing);
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
 .fade-up.is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* ---------- Motion: hero entrance (page-load) ---------- */
+
+@keyframes heroReveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero-reveal {
+  opacity: 0;
+  animation: heroReveal 650ms var(--easing) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -261,6 +275,10 @@ p {
   .fade-up {
     opacity: 1;
     transform: none;
+  }
+  .hero-reveal {
+    animation: none;
+    opacity: 1;
   }
 }
 

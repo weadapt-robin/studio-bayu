@@ -103,17 +103,17 @@ const domain = "studiobayu.com";
         </video>
         <div class="container hero hero--centered">
           <div class="hero__copy">
-            <span class="logo-mark logo-mark--md" role="img" aria-label="Studio Bayu"></span>
-            <h1>Brengt projecten<br /> in beweging.</h1>
-            <p class="lead">
+            <span class="logo-mark logo-mark--md hero-reveal" style="--reveal-delay: 0ms" role="img" aria-label="Studio Bayu"></span>
+            <h1 class="hero-reveal" style="--reveal-delay: 120ms">Brengt projecten<br /> in beweging.</h1>
+            <p class="lead hero-reveal" style="--reveal-delay: 240ms">
               Operations &amp; (lead) projectmanagement voor agencies en brands.
             </p>
-            <p>
+            <p class="hero-reveal" style="--reveal-delay: 340ms">
               Ik help teams en organisaties om projecten te structureren, aan te sturen
               en te realiseren van strategie tot uitvoering. Met focus op overzicht,
               samenwerking en een soepel lopende operatie.
             </p>
-            <div class="hero__cta">
+            <div class="hero__cta hero-reveal" style="--reveal-delay: 420ms">
               <a href="#contact" class="btn btn--primary">Kennismaken</a>
               <a href="#expertise" class="btn btn--ghost">Expertise</a>
             </div>
@@ -123,8 +123,8 @@ const domain = "studiobayu.com";
 
       <!-- ============ INTRODUCTIE (id=introductie) ============ -->
       <section id="introductie" class="band band--deep">
-        <div class="container split split--image-left fade-up">
-          <div class="split__media">
+        <div class="container split split--image-left">
+          <div class="split__media fade-up">
             <img
               src="/assets/studio_bayu.JPG"
               alt="Lize van den Heuvel — Studio Bayu"
@@ -133,7 +133,7 @@ const domain = "studiobayu.com";
               decoding="async"
             />
           </div>
-          <div class="split__copy">
+          <div class="split__copy fade-up" style="--reveal-delay: 120ms">
             <span class="eyebrow eyebrow--inverse">Introductie</span>
             <h2>Over Studio Bayu</h2>
             <p>
@@ -273,8 +273,8 @@ const domain = "studiobayu.com";
 
       <!-- ============ VOOR WIE (id=voor-wie) ============ -->
       <section id="voor-wie" class="band band--deep">
-        <div class="container split split--image-right fade-up">
-          <div class="split__copy">
+        <div class="container split split--image-right">
+          <div class="split__copy fade-up">
             <span class="eyebrow eyebrow--inverse">Voor wie</span>
             <h2>Studio Bayu werkt met…</h2>
             <ul class="feature-list">
@@ -284,7 +284,7 @@ const domain = "studiobayu.com";
               <li>opdrachtgevers die iemand zoeken die verantwoordelijkheid neemt in uitvoering</li>
             </ul>
           </div>
-          <div class="split__media">
+          <div class="split__media fade-up" style="--reveal-delay: 120ms">
             <img
               src="/assets/DSCF5000.JPG"
               alt="Studio Bayu — voor wie"
@@ -297,13 +297,13 @@ const domain = "studiobayu.com";
       </section>
 
       <!-- ============ WERKWIJZE (id=werkwijze) ============ -->
-      <section id="werkwijze" class="band band--light fade-up">
+      <section id="werkwijze" class="band band--light">
         <div class="container showcase">
-          <div class="showcase__heading">
+          <div class="showcase__heading fade-up">
             <span class="eyebrow">Werkwijze</span>
             <h2>Hoe werkt Studio Bayu?</h2>
           </div>
-          <div class="showcase__body showcase__body--intro">
+          <div class="showcase__body showcase__body--intro fade-up" style="--reveal-delay: 100ms">
             <p>
               Studio Bayu werkt direct, analytisch en betrokken. Altijd vanuit het principe
               dat elk project of team begint bij hetzelfde: begrijpen hoe het écht werkt in
@@ -321,7 +321,7 @@ const domain = "studiobayu.com";
             </p>
           </div>
           <div class="showcase__grid">
-            <figure class="pillar">
+            <figure class="pillar fade-up" style="--reveal-delay: 0ms">
               <img
                 src="/assets/DSCF2628.JPG"
                 alt="heldere structuren — Studio Bayu werkwijze"
@@ -333,7 +333,7 @@ const domain = "studiobayu.com";
                 <h3>heldere structuren</h3>
               </figcaption>
             </figure>
-            <figure class="pillar">
+            <figure class="pillar fade-up" style="--reveal-delay: 80ms">
               <img
                 src="/assets/DSCF2287.JPG"
                 alt="gerichte aansturing — Studio Bayu werkwijze"
@@ -345,7 +345,7 @@ const domain = "studiobayu.com";
                 <h3>gerichte aansturing</h3>
               </figcaption>
             </figure>
-            <figure class="pillar">
+            <figure class="pillar fade-up" style="--reveal-delay: 160ms">
               <img
                 src="/assets/DSCF2292.JPG"
                 alt="rust in de uitvoering — Studio Bayu werkwijze"
@@ -497,15 +497,15 @@ const domain = "studiobayu.com";
       </section>
 
       <!-- ============ CTA / CONTACT (id=contact) ============ -->
-      <section id="contact" class="band band--deep fade-up">
+      <section id="contact" class="band band--deep">
         <div class="container cta">
-          <span class="eyebrow eyebrow--inverse">Kennismaken</span>
-          <h2>Samenwerken?</h2>
-          <p>
+          <span class="eyebrow eyebrow--inverse fade-up">Kennismaken</span>
+          <h2 class="fade-up" style="--reveal-delay: 80ms">Samenwerken?</h2>
+          <p class="fade-up" style="--reveal-delay: 160ms">
             Wil je weten of Studio Bayu past bij jouw organisatie of project? Neem gerust
             contact op en wie weet wat voor moois daaruit ontstaat.
           </p>
-          <div class="cta__actions">
+          <div class="cta__actions fade-up" style="--reveal-delay: 240ms">
             <a href="mailto:lize@studiobayu.com" class="btn btn--primary">Mail Lize</a>
           </div>
         </div>
@@ -547,10 +547,14 @@ const domain = "studiobayu.com";
             e.preventDefault();
             const href = a.getAttribute('href');
             setOpen(false);
-            requestAnimationFrame(() => {
+            setTimeout(() => {
               const target = document.querySelector(href);
-              if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
+              if (!target) return;
+              const header = document.querySelector('.site-header');
+              const offset = header ? header.getBoundingClientRect().bottom : 0;
+              const top = target.getBoundingClientRect().top + window.scrollY - offset;
+              window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+            }, 50);
           });
         });
       })();
@@ -1482,6 +1486,10 @@ const domain = "studiobayu.com";
       @media (max-width: 860px) {
         .site-footer__nav { display: none; }
       }
+
+      /* ---------- Stagger: expertise cards ---------- */
+      .services__grid .service-card:nth-child(2) { --reveal-delay: 80ms; }
+      .services__grid .service-card:nth-child(3) { --reveal-delay: 160ms; }
     </style>
   </body>
 </html>
