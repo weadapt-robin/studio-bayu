@@ -912,20 +912,18 @@ const domain = "studiobayu.com";
         object-position: center;
         opacity: 0.2;
         filter: grayscale(1) sepia(0.4) contrast(0.8);
-        mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
         z-index: 0;
         pointer-events: none;
       }
-      /* Zachte overgang van pagina-achtergrond naar video bovenaan */
+      /* Crème-sluier: boven faden + zij-randen dichten */
       .band--hero::before {
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(to bottom,
-          var(--bg) 0%,
-          color-mix(in srgb, var(--bg) 60%, transparent) 18%,
-          transparent 40%);
+        background:
+          linear-gradient(to bottom, var(--bg) 0%, transparent 35%),
+          linear-gradient(to right,  var(--bg) 0%, transparent 10%),
+          linear-gradient(to left,   var(--bg) 0%, transparent 10%);
         z-index: 1;
         pointer-events: none;
       }
