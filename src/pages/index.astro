@@ -903,7 +903,7 @@ const domain = "studiobayu.com";
       }
 
       /* ---------- Hero: video-achtergrond ---------- */
-      .band--hero { isolation: isolate; overflow: hidden; }
+      .band--hero { isolation: isolate; }
       .hero__video {
         position: absolute;
         inset: 0;
@@ -911,7 +911,7 @@ const domain = "studiobayu.com";
         object-fit: cover;
         object-position: center;
         opacity: 0.2;
-        filter: grayscale(1) contrast(0.8);
+        filter: grayscale(1) sepia(0.4) contrast(0.8);
         z-index: 0;
         pointer-events: none;
       }
