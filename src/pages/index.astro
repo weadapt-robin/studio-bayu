@@ -903,27 +903,27 @@ const domain = "studiobayu.com";
       }
 
       /* ---------- Hero: video-achtergrond ---------- */
-      .band--hero { isolation: auto; }
+      .band--hero { isolation: isolate; }
       .hero__video {
         position: absolute;
         inset: 0;
         height: 100%;
         object-fit: cover;
         object-position: 35% center;
-        opacity: 0.2;
+        opacity: 0.22;
         filter: grayscale(1) sepia(0.4) contrast(0.8);
         z-index: 0;
         pointer-events: none;
       }
-      /* Crème-sluier: boven faden + zij-randen dichten */
+      /* Crème-sluier: boven faden + zij-randen breed dichten */
       .band--hero::before {
         content: '';
         position: absolute;
         inset: 0;
         background:
           linear-gradient(to bottom, var(--bg) 0%, transparent 35%),
-          linear-gradient(to right,  var(--bg) 0%, transparent 10%),
-          linear-gradient(to left,   var(--bg) 0%, transparent 10%);
+          linear-gradient(to right,  var(--bg) 0%, transparent 25%),
+          linear-gradient(to left,   var(--bg) 0%, transparent 25%);
         z-index: 1;
         pointer-events: none;
       }
